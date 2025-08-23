@@ -1,0 +1,10 @@
+/* Layout principal con sidebar + contenido */
+.layout {
+  display: flex;
+}
+
+/* El contenido empieza a la derecha del sidebar */
+.content {
+  margin-left: 280px;   /* mismo ancho del sidebar */
+  flex: 1;
+}

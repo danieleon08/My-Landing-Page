@@ -1,0 +1,35 @@
+/* Fondo con imagen */
+.myprofile {
+  width: 100%;
+  height: 300vh; /* ocupa toda la pantalla */
+  background-size: cover; /* cubre todo el espacio */
+  background-position: center; /* centrada */
+  background-repeat: no-repeat; /* que no se repita */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Capa oscura opcional para mejorar contraste */
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); 
+  border-radius: 10px;
+}
+
+/* Texto */
+.intro-text {
+  color: #fff;
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;                /* inicia oculto */
+  transform: translateY(30px);
+  animation: fadeInUp 1.5s ease forwards;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

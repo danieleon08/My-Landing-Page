@@ -7,4 +7,6 @@ import { Component } from '@angular/core';
 })
 export class MyprofileComponent {
 
+    backgroundUrl = 'assets/images/fondoLandingMM.png';
+
 }
