@@ -33,6 +33,14 @@
   animation: fadeWord 3s ease-in-out infinite;
 }
 
+.mydata {
+  margin: 0;
+  background-color:#d7d5d5;
+  padding: 20px;
+  border-radius: 8px;
+  height: 300px;
+}
+
 /* Animación de entrada del bloque */
 @keyframes fadeInUp {
   to {

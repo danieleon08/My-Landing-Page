@@ -4,8 +4,14 @@
   min-height: 100vh;  /* ocupa toda la altura de la ventana */
 }
 
-/* El contenido empieza a la derecha del sidebar */
+/* Contenido sin sidebar */
 .content {
-  margin-left: 280px;   /* mismo ancho del sidebar */
+  margin-left: 0;
   flex: 1;
+  transition: margin-left 0.5s ease; /* animación suave */
+}
+
+/* Contenido con sidebar */
+.content.with-sidebar {
+  margin-left: 330px; /* mismo ancho del sidebar */
 }

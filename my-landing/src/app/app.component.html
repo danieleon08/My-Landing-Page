@@ -1,6 +1,11 @@
 <div class="layout">
-  <app-header></app-header>
-  <main class="content">
+  <!-- Header superior (visible al inicio) -->
+  <app-header-top *ngIf="showTopHeader" [class.fade-out]="!showTopHeader"></app-header-top>
+
+  <!-- Sidebar (aparece después de scroll) -->
+  <app-header *ngIf="!showTopHeader" [class.slide-in]="!showTopHeader"></app-header>
+
+  <main class="content" [ngClass]="{ 'with-sidebar': layoutConSidebar }">
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </main>

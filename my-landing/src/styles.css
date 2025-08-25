@@ -5,3 +5,25 @@ html, body {
   height: 100%;
   width: 100%;
 }
+
+/* Animación de desvanecimiento (header superior) */
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.8s ease-in-out;
+}
+
+/* Animación de entrada desde la izquierda (sidebar) */
+.slide-in {
+  animation: slideIn 0.8s ease forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
