@@ -5,7 +5,7 @@
   left: 0;
   width: 250px;             /* ancho del sidebar */
   height: 100vh;            /* ocupa toda la altura */
-  background-color: #111;   /* color oscuro para diferenciar */
+  background-color: #06050e;   /* color oscuro para diferenciar */
   color: #fff;
   display: flex;
   flex-direction: column;   /* vertical */
@@ -54,7 +54,7 @@
 .nav-links a {
   text-decoration: none;
   color: #bbb;
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 500;
   transition: color 0.3s;
 }

@@ -1,6 +1,7 @@
 /* Layout principal con sidebar + contenido */
 .layout {
   display: flex;
+  min-height: 100vh;  /* ocupa toda la altura de la ventana */
 }
 
 /* El contenido empieza a la derecha del sidebar */
