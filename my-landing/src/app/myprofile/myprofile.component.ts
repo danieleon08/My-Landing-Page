@@ -9,7 +9,7 @@ export class MyprofileComponent implements OnInit, OnDestroy {
   backgroundUrl: string = 'assets/images/fondogris.png';
 
   // Lista de palabras dinámicas
-  words: string[] = ['JUGADOR', 'INNOVADOR', 'APASIONADO', 'CURIOSO'];
+  words: string[] = ['DEV FRONTED', 'INNOVADOR', 'DEV MOVIL', 'CURIOSO'];
   currentWord: string = this.words[0];
   private wordIndex: number = 0;
   private intervalId: any;

@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 250px;             /* ancho del sidebar */
-  height: 172vh;            /* ocupa toda la altura */
+  height: 200vh;            /* ocupa toda la altura */
   background-color: #06050e;   /* color oscuro para diferenciar */
   color: #fff;
   display: flex;
@@ -18,7 +18,7 @@
 .profile-section {
   text-align: center;
   margin-bottom: 60px;
-  margin-top: 120px;
+  margin-top: 550px;
 }
 
 .profile-pic {
@@ -61,5 +61,5 @@
 }
 
 .nav-links a:hover {
-  color: #f1c40f;
+  color: #DAC29E;
 }

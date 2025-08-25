@@ -13,7 +13,7 @@ export class AppComponent {
   onWindowScroll() {
     const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    this.showTopHeader = scrollY < 80;
-    this.layoutConSidebar = scrollY >= 80; // true cuando aparece sidebar
+    this.showTopHeader = scrollY < 350;
+    this.layoutConSidebar = scrollY >= 350; // true cuando aparece sidebar
   }
 }
