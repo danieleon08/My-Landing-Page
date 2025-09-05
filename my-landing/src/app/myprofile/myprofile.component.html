@@ -6,5 +6,94 @@
     </h1>
   </div>
 </div>
-<div class="mydata">
+<div class="mydata" id="sobre-mi">
+  <h2 class="section-title">Sobre Mí</h2>
+  <p class="about-text">
+    Soy un desarrollador apasionado por la tecnología y la innovación.  
+    Me gusta crear soluciones digitales que aporten valor, aprender nuevas herramientas 
+    y enfrentarme a retos que me hagan crecer profesional y personalmente.
+  </p>
+
+  <div class="about-info">
+    <div class="info-item">
+      <i class="fas fa-user"></i>
+      <span><strong>Nombre:</strong> Daniel León</span>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-birthday-cake"></i>
+      <span><strong>Edad:</strong> 25 años</span>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-map-marker-alt"></i>
+      <span><strong>Ubicación:</strong> Bogotá, Colombia</span>
+    </div>
+    <div class="info-item">
+      <i class="fas fa-envelope"></i>
+      <span><strong>Email:</strong> daniel.leon@example.com</span>
+    </div>
+  </div>
 </div>
+
+<div class="courses-section" id="cursos">
+  <h2 class="section-title2">Cursos y Educación</h2>
+
+  <div class="carousel">
+    <!-- Flecha izquierda -->
+    <button class="carousel-btn left" (click)="prevSlide()">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <!-- Pista del carrusel -->
+    <div class="carousel-track" [style.transform]="'translateX(-' + currentIndex * 100/visibleCards + '%)'">
+      <div class="card" *ngFor="let course of courses">
+        <img [src]="course.image" alt="course image">
+        <div class="card-content">
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flecha derecha -->
+    <button class="carousel-btn right" (click)="nextSlide()">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</div>
+
+<div class="projects-section" id="proyectos">
+  <h2 class="section-title2">Proyectos</h2>
+
+  <div class="projects-container">
+    <!-- Lado izquierdo: detalle -->
+    <div class="project-detail" *ngIf="selectedProject">
+      <img [src]="selectedProject.image" alt="Detalle proyecto">
+      <div class="detail-content">
+        <h3>{{ selectedProject.title }}</h3>
+        <p>{{ selectedProject.description }}</p>
+        <ul>
+          <li *ngFor="let feature of selectedProject.features">{{ feature }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Lado derecho: lista de proyectos -->
+    <div class="projects-list">
+      <div 
+        class="project-card" 
+        *ngFor="let project of projects" 
+        (click)="selectProject(project)">
+        
+        <div class="project-image">
+          <img [src]="project.image" alt="proyecto">
+        </div>
+        <div class="project-info">
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.short }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

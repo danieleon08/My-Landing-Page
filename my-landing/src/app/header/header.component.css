@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: 250px;             /* ancho del sidebar */
-  height: 200vh;            /* ocupa toda la altura */
+  height: 230vh;            /* ocupa toda la altura */
   background-color: #06050e;   /* color oscuro para diferenciar */
   color: #fff;
   display: flex;

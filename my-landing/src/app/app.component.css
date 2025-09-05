@@ -1,17 +1,21 @@
-/* Layout principal con sidebar + contenido */
+/* Layout principal */
 .layout {
   display: flex;
-  min-height: 100vh;  /* ocupa toda la altura de la ventana */
+  min-height: 100vh;
+  width: 100%; /* ocupa el ancho completo de la ventana */
+  overflow-x: hidden; /* evita scroll horizontal inesperado */
 }
 
 /* Contenido sin sidebar */
 .content {
-  margin-left: 0;
   flex: 1;
-  transition: margin-left 0.5s ease; /* animación suave */
+  margin-left: 0;
+  width: 100%; /* ocupa todo el ancho cuando no hay sidebar */
+  transition: all 0.5s ease;
 }
 
 /* Contenido con sidebar */
 .content.with-sidebar {
-  margin-left: 330px; /* mismo ancho del sidebar */
+  margin-left: 330px;               /* empuja a la derecha */
+  width: calc(100% - 330px);        /* ocupa solo el ancho restante */
 }
