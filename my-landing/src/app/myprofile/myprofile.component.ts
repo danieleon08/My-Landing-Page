@@ -10,31 +10,12 @@ export class MyprofileComponent implements OnInit, OnDestroy {
   backgroundUrl: string = 'assets/images/fondogris.png';
 
   // 🌟 Palabras dinámicas
-  words: string[] = ['DEV FRONTEND', 'INNOVADOR', 'DEV MÓVIL', 'CURIOSO'];
+  words: string[] = ['DEV FRONTEND', 'INNOVADOR', 'DEV MÓVIL', 'CREATIVO', 'LÍDER TECNOLÓGICO', 'EMPRENDEDOR'];
   currentWord: string = this.words[0];
   private wordIndex: number = 0;
   private wordIntervalId: any;
 
-  // 🌟 Información personal
-  personalInfo = [
-    { icon: 'fas fa-user', label: 'Nombre', value: 'Daniel León' },
-    { icon: 'fas fa-birthday-cake', label: 'Edad', value: '25 años' },
-    { icon: 'fas fa-map-marker-alt', label: 'Ubicación', value: 'Bogotá, Colombia' },
-    { icon: 'fas fa-envelope', label: 'Email', value: 'daniel.leon@example.com' }
-  ];
-
-  // 🌟 Habilidades
-  skills = [
-    { name: 'JavaScript/TypeScript', level: 90 },
-    { name: 'Angular', level: 85 },
-    { name: 'React', level: 80 },
-    { name: 'Node.js', level: 75 },
-    { name: 'Python', level: 70 },
-    { name: 'UI/UX Design', level: 65 },
-    { name: 'Docker', level: 60 },
-    { name: 'AWS', level: 55 }
-  ];
-
+  
   // 🌟 Cursos (carrusel)
   courses = [
     { image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg', title: 'Angular Avanzado', description: 'Dominio completo del framework Angular con mejores prácticas.' },

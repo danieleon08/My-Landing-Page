@@ -9,6 +9,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MyprofileComponent } from './myprofile/myprofile.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
+import { HabilidadesComponent } from './habilidades/habilidades.component';
+import { AboutmeComponent } from './aboutme/aboutme.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { HeaderTopComponent } from './header-top/header-top.component';
     HeaderComponent,
     MyprofileComponent,
     HeaderTopComponent,
+    HabilidadesComponent,
+    AboutmeComponent,
   ],
   imports: [
     BrowserModule,
