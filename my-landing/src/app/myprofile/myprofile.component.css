@@ -478,7 +478,7 @@
 
 /* 6. PROYECTOS */
 .projects-section {
-  background: #f8f9fa;
+  background: #06050e;
   padding: 80px 20px;
 }
 
@@ -492,7 +492,7 @@
 
 .project-detail {
   flex: 2;
-  background: #ffffff;
+  background: #333333;
   border-radius: 20px;
   box-shadow: 0px 15px 40px rgba(0,0,0,0.1);
   padding: 30px;
@@ -509,13 +509,13 @@
 }
 
 .detail-content h3 {
-  color: #244C54;
+  color: #03dac6;
   font-size: 2rem;
   margin-bottom: 15px;
 }
 
 .detail-content p {
-  color: #333333;
+  color: #ffffff;
   line-height: 1.8;
   font-size: 1.1rem;
   margin-bottom: 20px;

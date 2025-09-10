@@ -61,39 +61,6 @@
   </div>
 </div>
 
-<!-- 3. MIS HABILIDADES -->
-<div class="skills-section" id="habilidades">
-  <div class="section-title2">Mis Habilidades</div>
-  <div class="skills-container">
-    <div class="skill-item" *ngFor="let skill of skills; let i = index"
-         [style.animation-delay]="i * 0.15 + 's'">
-      <div class="skill-name">{{ skill.name }}</div>
-      <div class="skill-bar">
-        <div class="skill-progress" [style.width]="skill.level + '%'"></div>
-      </div>
-      <span class="skill-percentage">{{ skill.level }}%</span>
-    </div>
-  </div>
-</div>
-
-<!-- 5. EXPERIENCIA -->
-<div class="experience-section" id="experiencia">
-  <h2 class="section-title">Experiencia Profesional</h2>
-  <div class="timeline">
-    <div class="timeline-item" *ngFor="let exp of experiences; let i = index"
-         [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
-      <div class="timeline-content">
-        <div class="timeline-date">{{ exp.period }}</div>
-        <h3>{{ exp.position }}</h3>
-        <h4>{{ exp.company }}</h4>
-        <p>{{ exp.description }}</p>
-        <ul>
-          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- 6. PROYECTOS -->
 <div class="projects-section" id="proyectos">
@@ -131,6 +98,25 @@
           <h3>{{ project.title }}</h3>
           <p>{{ project.short }}</p>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. EXPERIENCIA -->
+<div class="experience-section" id="experiencia">
+  <h2 class="section-title">Experiencia Profesional</h2>
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let exp of experiences; let i = index"
+         [class.left]="i % 2 === 0" [class.right]="i % 2 !== 0">
+      <div class="timeline-content">
+        <div class="timeline-date">{{ exp.period }}</div>
+        <h3>{{ exp.position }}</h3>
+        <h4>{{ exp.company }}</h4>
+        <p>{{ exp.description }}</p>
+        <ul>
+          <li *ngFor="let achievement of exp.achievements">{{ achievement }}</li>
+        </ul>
       </div>
     </div>
   </div>
