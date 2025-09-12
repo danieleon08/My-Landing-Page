@@ -1,0 +1,28 @@
+<!-- 4. CURSOS Y EDUCACIÓN -->
+<div class="courses-section" id="cursos">
+  <h2 class="section-title2">Cursos y Educación</h2>
+
+  <div class="carousel">
+    <!-- Botón izquierda -->
+    <button class="carousel-btn left" (click)="prevSlide()">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <!-- Track -->
+    <div class="carousel-track" 
+         [style.transform]="'translateX(-' + currentIndex * (100 / visibleCards) + '%)'">
+      <div class="card" *ngFor="let course of courses">
+        <img [src]="course.image" alt="course image">
+        <div class="card-content">
+          <h3>{{ course.title }}</h3>
+          <p>{{ course.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón derecha -->
+    <button class="carousel-btn right" (click)="nextSlide()">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</div>

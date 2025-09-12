@@ -1,0 +1,47 @@
+<!-- 8. CONTÁCTAME -->
+<div class="contact-section" id="contacto">
+  <h2 class="section-title2">Contáctame</h2>
+  <div class="contact-container">
+    <div class="contact-info">
+      <h3>¿Tienes un proyecto en mente?</h3>
+      <p>Estoy disponible para nuevas oportunidades y colaboraciones. ¡Hablemos!</p>
+      
+      <div class="contact-methods">
+        <div class="contact-method" *ngFor="let method of contactMethods">
+          <i [class]="method.icon"></i>
+          <div>
+            <h4>{{ method.title }}</h4>
+            <p>{{ method.value }}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="social-links">
+        <a href="#" class="social-link" *ngFor="let social of socialLinks">
+          <i [class]="social.icon"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-form">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Tu nombre" required>
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Tu email" required>
+        </div>
+        <div class="form-group">
+          <input type="text" placeholder="Asunto" required>
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Tu mensaje" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn-submit">
+          <i class="fas fa-paper-plane"></i>
+          Enviar Mensaje
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

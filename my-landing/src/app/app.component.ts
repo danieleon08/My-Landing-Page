@@ -17,11 +17,11 @@ export class AppComponent {
       // Al inicio -> mostrar header y no sidebar
       this.showTopHeader = true;
       this.layoutConSidebar = false;
-    } else if (scrollY >= 350 && scrollY <= 700) {
+    } else if (scrollY >= 350 && scrollY <= 1000) {
       // En rango medio -> ocultar header y activar sidebar
       this.showTopHeader = false;
       this.layoutConSidebar = true;
-    } else if (scrollY > 700) {
+    } else if (scrollY > 1000) {
       // Al pasar de 700 -> volver a mostrar header (sidebar puede seguir activo o no según quieras)
       this.showTopHeader = true; // o true si quieres que el header reaparezca
       this.layoutConSidebar = false; // aquí decides: true si sidebar siempre acompaña, false si quieres quitarlo

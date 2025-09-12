@@ -11,6 +11,11 @@ import { MyprofileComponent } from './myprofile/myprofile.component';
 import { HeaderTopComponent } from './header-top/header-top.component';
 import { HabilidadesComponent } from './habilidades/habilidades.component';
 import { AboutmeComponent } from './aboutme/aboutme.component';
+import { CursosComponent } from './cursos/cursos.component';
+import { ProjectsComponent } from './projects/projects.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
+import { TechComponent } from './tech/tech.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -22,6 +27,11 @@ import { AboutmeComponent } from './aboutme/aboutme.component';
     HeaderTopComponent,
     HabilidadesComponent,
     AboutmeComponent,
+    CursosComponent,
+    ProjectsComponent,
+    ExperiencesComponent,
+    TechComponent,
+    ContactComponent,
   ],
   imports: [
     BrowserModule,
