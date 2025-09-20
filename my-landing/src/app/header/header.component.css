@@ -3,22 +3,29 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 250px;             /* ancho del sidebar */
-  height: 230vh;            /* ocupa toda la altura */
-  background-color: #06050e;   /* color oscuro para diferenciar */
+  width: 270px;
+  height: 100vh;
+  background-color: #06050e;
   color: #fff;
   display: flex;
-  flex-direction: column;   /* vertical */
+  flex-direction: column;
   align-items: center;
-  padding: 40px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+  padding: 30px 20px;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  margin-top: 550px;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.header::-webkit-scrollbar {
+  display: none; /* Chrome, Edge, Safari */
 }
 
 /* Sección del perfil */
 .profile-section {
   text-align: center;
-  margin-bottom: 60px;
-  margin-top: 550px;
+  margin-bottom: 30px;
 }
 
 .profile-pic {
@@ -37,25 +44,59 @@
 }
 
 .name {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bold;
   color: #fff;
-  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+.role {
+  font-size: 16px;
+  font-weight: 600;
+  color: #DAC29E;
+  margin: 5px 0;
+}
+
+.focus {
+  font-size: 14px;
+  font-weight: 400;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+/* Contact Info */
+.contact-info {
+  font-size: 14px;
+  color: #bbb;
+  margin-bottom: 25px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-info i {
+  color: #DAC29E;
+  font-size: 14px;
 }
 
 /* Navegación */
 .nav-links {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
   width: 100%;
   text-align: center;
+  margin-bottom: 25px;
 }
 
 .nav-links a {
   text-decoration: none;
   color: #bbb;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -63,3 +104,96 @@
 .nav-links a:hover {
   color: #DAC29E;
 }
+
+/* Botones */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  text-align: center;
+}
+
+.btn {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.contact-btn {
+  background: #7a3eff;
+  color: #fff;
+}
+
+.linkedin-btn {
+  background: #0077b5;
+  color: #fff;
+}
+
+.github-btn {
+  background: #181717;
+  color: #fff;
+}
+
+.cv-btn {
+  background: #2ecc71;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.85;
+  transform: translateY(-2px);
+}
+
+/* Animación elegante */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aplica a los botones */
+.action-buttons .btn {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeSlideUp 0.8s ease forwards;
+}
+
+/* Para que salgan uno tras otro */
+.action-buttons .btn:nth-child(1) { animation-delay: 0.2s; }
+.action-buttons .btn:nth-child(2) { animation-delay: 0.4s; }
+.action-buttons .btn:nth-child(3) { animation-delay: 0.6s; }
+.action-buttons .btn:nth-child(4) { animation-delay: 0.8s; }
+
+/* Animación para desvanecer */
+@keyframes fadeInImage {
+  from {
+    opacity: 0;
+    transform: scale(1.05); /* un poquito más grande al inicio */
+  }
+  to {
+    opacity: 1;
+    transform: scale(1); /* vuelve a su tamaño normal */
+  }
+}
+
+/* Imagen con efecto */
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  object-fit: cover;
+  opacity: 0; /* oculta al inicio */
+  animation: fadeInImage 1.2s ease forwards;
+}
+
