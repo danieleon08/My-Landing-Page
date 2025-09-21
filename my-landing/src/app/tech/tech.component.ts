@@ -71,7 +71,12 @@ export class TechComponent implements AfterViewInit {
         { name: 'Bizagi', icon: 'fas fa-project-diagram', color: '#00AEEF' },
         { name: 'Eclipse', icon: 'fas fa-moon', color: '#2C2255' },
         { name: 'IntelliJ IDEA', icon: 'fas fa-lightbulb', color: '#000000' },
-        { name: 'VS Code', icon: 'fas fa-code', color: '#007ACC' }
+        { name: 'VS Code', icon: 'fas fa-code', color: '#007ACC' },
+        { name: 'GNS3', icon: 'fas fa-network-wired', color: '#FF6F00' },
+        { name: 'Packet Tracer', icon: 'fas fa-project-diagram', color: '#00BFFF' },
+        { name: 'NetBeans', icon: 'fas fa-leaf', color: '#1B6AC6' },
+        { name: 'Visual Paradigm', icon: 'fas fa-sitemap', color: '#E30022' },
+        { name: 'VirtualBox', icon: 'fas fa-cube', color: '#183A61' }
       ]
     }
   ];

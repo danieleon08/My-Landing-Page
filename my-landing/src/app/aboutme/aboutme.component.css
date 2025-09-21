@@ -1,84 +1,118 @@
-/* 2. SOBRE MÍ */
-.mydata {
-  background: #e7e7e7;
-  padding: 80px 20px;
-  height: 450px;
+/* Layout principal: texto a la izquierda, logros a la derecha */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  padding: 80px 40px;
+  align-items: flex-start;
+  background: #111; /* fondo oscuro */
+  color: #fff;
 }
 
-
+/* ---- LADO IZQUIERDO ---- */
 .section-title {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #244C54;
+  color: #DAC29E;
   margin-bottom: 30px;
   text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 3px;
-  position: relative;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 4px;
-  background: linear-gradient(135deg, #244C54 0%, #03dac6 100%);
-  border-radius: 2px;
 }
 
 .about-text {
-  text-align: center;
   font-size: 1.2rem;
-  color: #333333;
-  max-width: 800px;
-  margin: 0 auto 50px auto;
+  margin-bottom: 40px;
   line-height: 1.8;
-  font-weight: 400;
 }
 
 .about-info {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .info-item {
   display: flex;
   align-items: center;
-  background: #ffffff;
-  padding: 20px 25px;
-  border-radius: 15px;
-  box-shadow: 0px 10px 30px rgba(0,0,0,0.1);
-  transition: all 0.4s ease;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: slideUp 0.8s ease forwards;
-}
-
-.info-item:nth-child(1) { animation-delay: 0.1s; }
-.info-item:nth-child(2) { animation-delay: 0.2s; }
-.info-item:nth-child(3) { animation-delay: 0.3s; }
-.info-item:nth-child(4) { animation-delay: 0.4s; }
-
-.info-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0px 15px 40px rgba(0,0,0,0.2);
+  background: #1a1a1a;
+  padding: 15px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
 .info-item i {
-  font-size: 2rem;
-  color: #244C54;
-  margin-right: 20px;
-  min-width: 40px;
+  font-size: 1.5rem;
+  color: #03dac6;
+  margin-right: 15px;
 }
 
-.info-item span {
-  font-size: 1.1rem;
-  color: #333333;
-  font-weight: 500;
+/* ---- LADO DERECHO (CARRUSEL) ---- */
+.about-right {
+  overflow: hidden;
+  height: 500px; /* altura visible */
+  position: relative;
+
+  /* Efecto inicial (oculto) */
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-right.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.achievements-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: scroll-up 120s linear infinite;
+  padding: 20px;
+}
+
+/* Tarjetas */
+.achievement-card {
+  background: #1e1e1e;
+  padding: 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-height: 90px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  position: relative;
+  transition: box-shadow 0.4s ease, border 0.4s ease;
+  border: 1px solid transparent;
+}
+
+
+.achievement-card:hover {
+  border: 1px solid #DAC29E; /* borde iluminado */
+  box-shadow: 0 0 20px rgba(213, 230, 136, 0.6), 
+              0 0 40px rgba(220, 243, 90, 0.3);
+}
+
+.achievement-card i {
+  font-size: 1.8rem;
+  color: #DAC29E;
+}
+
+.achievement-text h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+.achievement-text p {
+  margin: 5px 0 0;
+  font-size: 0.95rem;
+  color: #bbb;
+}
+
+
+/* 🔥 Scroll infinito hacia arriba */
+@keyframes scroll-up {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); } 
+  /* Subimos la mitad porque duplicamos los logros en el TS */
 }
