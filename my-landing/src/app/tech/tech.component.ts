@@ -56,7 +56,9 @@ export class TechComponent implements AfterViewInit {
         { name: 'MySQL', icon: 'fas fa-database', color: '#4479A1' },
         { name: 'Firebase', icon: 'fas fa-fire', color: '#FFCA28' },
         { name: 'Redis', icon: 'fas fa-cube', color: '#DC382D' },
-        { name: 'Oracle', icon: 'fas fa-database', color: '#F80000' }
+        { name: 'Oracle', icon: 'fas fa-database', color: '#F80000' },
+        { name: 'Supabase', icon: 'fas fa-bolt', color: '#34b27b' }
+
       ]
     },
     {

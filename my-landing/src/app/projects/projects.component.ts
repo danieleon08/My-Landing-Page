@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,8 +6,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
   projects = [
     { 
       image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg', 
@@ -47,6 +46,26 @@ export class ProjectsComponent {
   ];
 
   selectedProject: any = this.projects[0];
+
+  constructor(private el: ElementRef) {}
+
+  ngAfterViewInit(): void {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          } else {
+            entry.target.classList.remove('in-view');
+          }
+        });
+      },
+      { threshold: 0.2 } // Se activa cuando al menos 20% de la sección entra en pantalla
+    );
+
+    const sections = this.el.nativeElement.querySelectorAll('.project-card');
+    sections.forEach((section: Element) => observer.observe(section));
+  }
 
   selectProject(project: any): void {
     this.selectedProject = project;

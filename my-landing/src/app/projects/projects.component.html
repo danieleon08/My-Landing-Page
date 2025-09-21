@@ -24,19 +24,20 @@
     </div>
 
     <!-- Lista de proyectos -->
-    <div class="projects-list">
-      <div class="project-card" *ngFor="let project of projects; let i = index"
-           (click)="selectProject(project)"
-           [class.active]="selectedProject === project"
-           [style.animation-delay]="i * 0.1 + 's'">
+   <div class="projects-list">
+      <div class="project-card" 
+          *ngFor="let project of projects; let i = index"
+          (click)="selectProject(project)"
+          [class.active]="selectedProject === project"
+          [style.animation-delay]="i * 0.1 + 's'">
         <div class="project-image">
           <img [src]="project.image" alt="proyecto">
-        </div>
-        <div class="project-info">
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.short }}</p>
+          <div class="overlay">
+            <h3>{{ project.title }}</h3>
+          </div>
         </div>
       </div>
     </div>
+    
   </div>
 </div>
