@@ -68,7 +68,9 @@
   gap: 20px;
   animation: scroll-up 120s linear infinite;
   padding: 20px;
+  height: auto; /* importante: que se calcule dinámicamente */
 }
+
 
 /* Tarjetas */
 .achievement-card {
@@ -109,10 +111,52 @@
   color: #bbb;
 }
 
+/* Tablets: stack columnas */
+@media (max-width: 1024px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 60px 30px;
+  }
+}
 
-/* 🔥 Scroll infinito hacia arriba */
+/* ---- MOBILE ---- */
+@media (max-width: 768px) {
+  .about-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+  }
+
+  .about-right {
+    width: 100%;
+    height: auto;
+    opacity: 1; /* visible */
+    transform: translateY(0);
+  }
+
+  .achievements-carousel {
+    flex-direction: row;
+    gap: 15px;
+    animation: scroll-right 5s linear infinite; /* velocidad realista */
+    white-space: nowrap;
+  }
+
+  .achievement-card {
+    width: 420px; /* más angosta */
+    flex-shrink: 0;
+  }
+}
+
+/* 🔥 Scroll infinito hacia arriba (default escritorio) */
 @keyframes scroll-up {
   0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); } 
-  /* Subimos la mitad porque duplicamos los logros en el TS */
+  100% { transform: translateY(-100%); } 
+}
+
+/* 🔥 Scroll infinito hacia la derecha (móvil) */
+@keyframes scroll-right {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); } /* recorre todo */
 }

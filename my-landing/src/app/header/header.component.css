@@ -197,3 +197,69 @@
   animation: fadeInImage 1.2s ease forwards;
 }
 
+/* --- Responsive Sidebar --- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .header {
+    width: 220px;
+    padding: 20px 15px;
+  }
+
+  .profile-pic {
+    width: 100px;
+    height: 100px;
+  }
+
+  .name {
+    font-size: 18px;
+  }
+
+  .role {
+    font-size: 14px;
+  }
+
+  .contact-info {
+    font-size: 13px;
+  }
+
+  .btn {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .header {
+    width: 160px;
+    padding: 15px 10px;
+  }
+
+  .profile-pic {
+    width: 80px;
+    height: 80px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .role {
+    font-size: 12px;
+  }
+
+  .focus {
+    font-size: 12px;
+  }
+
+  .contact-info {
+    font-size: 12px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+}
+

@@ -48,3 +48,71 @@
 .header-top .nav-links a:hover {
   color: #DAC29E;
 }
+
+/* -------------------- */
+/* 📱 RESPONSIVE DESIGN */
+/* -------------------- */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .logo img {
+    width: 150px;
+  }
+
+  .header-top .nav-links {
+    gap: 40px;
+  }
+
+  .nav-links {
+    margin-right: 40px;
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .header-top {
+    height: 60px;
+    padding: 5px 15px;
+  }
+
+  .logo img {
+    width: 120px;
+  }
+
+  .header-top .nav-links {
+    gap: 20px;
+  }
+
+  .nav-links {
+    margin-right: 20px;
+    font-size: 13px;
+  }
+}
+
+/* Muy pequeños (≤ 480px) */
+@media (max-width: 480px) {
+  .header-top {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .logo {
+    margin: 0 auto 5px auto;
+  }
+
+  .header-top .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 0;
+  }
+
+  .nav-links {
+    font-size: 12px;
+  }
+}
