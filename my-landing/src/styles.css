@@ -5,10 +5,6 @@
   --color-primary: #0077ff;
   --color-secondary: #f0f0f0;
 
-  /* Medidas sidebar */
-  --sidebar-desktop: 300px;
-  --sidebar-tablet: 160px;
-  --sidebar-mobile: 100px;
 }
 
 :root {
@@ -22,10 +18,21 @@
   --color-btn-github: #181717;
   --color-btn-cv: #2ecc71;
 
-  --sidebar-desktop: 300px;
+  --sidebar-desktop: 290px;
   --sidebar-tablet: 200px;
-  --sidebar-mobile: 160px;
+  --sidebar-mobile: 140px;
 }
+
+:root {
+  --color-bg-about: #111;
+  --color-text-main: #ffffff;
+  --color-text-secondary: #bbb;
+  --color-highlight: #DAC29E;
+
+  --color-card-bg: #1e1e1e;
+  --color-card-hover-border: #DAC29E;
+}
+
 
 
 
