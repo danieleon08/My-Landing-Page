@@ -6,9 +6,9 @@
   --color-secondary: #f0f0f0;
 
   /* Medidas sidebar */
-  --sidebar-desktop: 330px;
-  --sidebar-tablet: 200px;
-  --sidebar-mobile: 150px;
+  --sidebar-desktop: 300px;
+  --sidebar-tablet: 180px;
+  --sidebar-mobile: 120px;
 }
 
 :root {

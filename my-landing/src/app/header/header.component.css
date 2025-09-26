@@ -137,7 +137,7 @@
   .header {
     width: var(--sidebar-mobile);
     padding: 15px 12px;
-    margin-top: 1000px; /* más grande en móviles */
+    margin-top: 900px; /* más grande en móviles */
   }
 
   .profile-pic {
