@@ -18,7 +18,7 @@
 /* Contenido con sidebar */
 .content.with-sidebar {
   margin-left: 330px;               /* empuja a la derecha */
-  width: calc(100% - 330px);        /* ocupa solo el ancho restante */
+  width: calc(100% - 250px);        /* ocupa solo el ancho restante */
 }
 
 /* --- Responsive --- */
@@ -27,7 +27,7 @@
 @media (max-width: 1024px) {
   .content.with-sidebar {
     margin-left: 220px;
-    width: calc(100% - 220px);
+    width: calc(100% - 250px);
   }
 }
 
@@ -35,6 +35,6 @@
 @media (max-width: 768px) {
   .content.with-sidebar {
     margin-left: 180px;
-    width: calc(100% - 150px);
+    width: calc(100% - 200px);
   }
 }

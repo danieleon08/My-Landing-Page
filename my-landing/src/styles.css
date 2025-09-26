@@ -7,8 +7,8 @@
 
   /* Medidas sidebar */
   --sidebar-desktop: 330px;
-  --sidebar-tablet: 220px;
-  --sidebar-mobile: 180px;
+  --sidebar-tablet: 200px;
+  --sidebar-mobile: 150px;
 }
 
 :root {
