@@ -26,9 +26,8 @@
   position: relative;
 }
 
-/* Texto */
 .intro-text {
-  color: var(--color-primary);
+  color: #ffffff !important;  /* 🔥 blanco fijo */
   font-size: 4rem;
   font-weight: 900;
   line-height: 1.2;
@@ -36,18 +35,32 @@
   opacity: 0;
   transform: translateY(50px);
   animation: fadeInUp 1.5s ease forwards;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
   letter-spacing: 2px;
+  z-index: 5; /* ✅ asegura que esté arriba del overlay */
+  position: relative;
 }
 
+
+
 .highlight {
-  color: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-secondary), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-style: italic;
   font-weight: 900;
   display: inline-block;
-  animation: fadeWord 3s ease-in-out infinite;
-  text-shadow: 0px 0px 20px rgba(3, 218, 198, 0.6);
+  animation: fadeWord 3s ease-in-out infinite, gradientShift 5s linear infinite;
+  text-shadow: none; /* ✅ sobra con el gradiente */
 }
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+
+
 
 /* Flecha para invitar scroll */
 .scroll-indicator {
@@ -65,6 +78,13 @@
   border-top: none;
   border-left: none;
   transform: rotate(45deg);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* --- RESPONSIVE --- */
