@@ -8,6 +8,18 @@
 }
 
 :root {
+  --color-primary: #244C54;
+  --color-secondary: #03dac6;
+  --color-dark-bg: #06050e;
+  --color-light-bg: #f8f9fa;
+  --color-white: #ffffff;
+  --color-text-dark: #333333;
+  --color-text-light: #666666;
+  --gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+}
+
+
+:root {
   --color-bg-sidebar: #06050e;
   --color-text-primary: #ffffff;
   --color-text-secondary: #bbb;
