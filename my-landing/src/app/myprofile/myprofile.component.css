@@ -98,14 +98,15 @@
 
 /* Celulares */
 @media (max-width: 768px) {
-  .intro-text {
-    font-size: 2rem;
-    padding: 0 15px;
+ .myprofile {
+    height: 100dvh;  /* 🔥 altura dinámica de pantalla (mejor en móviles modernos) */
+    background-attachment: scroll; /* evita bugs de fixed en móviles */
   }
 
-  /* 🔥 Al abrir sidebar, que se empuje hacia abajo */
-  .myprofile {
-    margin-top: 160px; /* más espacio para no chocar con el header lateral */
+  .intro-text {
+    font-size: 2rem;   /* más pequeño en móvil */
+    line-height: 1.3;
+    padding: 0 10px;
   }
 
   .scroll-indicator {
