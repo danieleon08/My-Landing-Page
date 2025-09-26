@@ -1,4 +1,5 @@
-<header class="header">
+<!-- 🌐 Sidebar (Desktop/Tablet) -->
+<header class="header sidebar" *ngIf="!isMobile">
   <!-- Foto de perfil -->
   <div class="profile-section">
     <div class="profile-pic">
@@ -32,3 +33,43 @@
     </a>
   </div>
 </header>
+
+<!-- 📱 Navbar (Celulares) -->
+<nav class="mobile-header" *ngIf="isMobile">
+  <div class="top-bar">
+    <h2 class="logo">Daniel León</h2>
+    <button class="menu-btn" (click)="toggleMenu()">☰</button>
+  </div>
+
+  <div class="mobile-menu" *ngIf="menuOpen">
+    <div class="profile-section">
+      <div class="profile-pic">
+        <img src="assets/images/mifoto.png" alt="Foto de perfil">
+      </div>
+      <h2 class="name">Daniel León</h2>
+      <h3 class="role">Web Developer</h3>
+      <p class="focus">Frontend Focus</p>
+    </div>
+
+    <div class="contact-info">
+      <p><i class="fas fa-map-marker-alt"></i> Bogotá, Colombia</p>
+      <p><i class="fas fa-phone"></i> +57 318 2018 778</p>
+      <p><i class="fas fa-envelope"></i> dafelepe10@gmail.com</p>
+    </div>
+
+    <div class="action-buttons">
+      <a href="mailto:daniel@example.com" class="btn contact-btn" (click)="toggleMenu()">
+        <i class="fas fa-envelope"></i> Contact
+      </a>
+      <a href="https://www.linkedin.com/in/tuusuario" target="_blank" class="btn linkedin-btn" (click)="toggleMenu()">
+        <i class="fab fa-linkedin"></i> LinkedIn
+      </a>
+      <a href="https://github.com/danieleon08" target="_blank" class="btn github-btn" (click)="toggleMenu()">
+        <i class="fab fa-github"></i> GitHub
+      </a>
+      <a href="assets/cv.pdf" download class="btn cv-btn" (click)="toggleMenu()">
+        <i class="fas fa-download"></i> Download CV
+      </a>
+    </div>
+  </div>
+</nav>
