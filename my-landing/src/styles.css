@@ -11,6 +11,23 @@
   --sidebar-mobile: 180px;
 }
 
+:root {
+  --color-bg-sidebar: #06050e;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #bbb;
+  --color-highlight: #DAC29E;
+
+  --color-btn-contact: #7a3eff;
+  --color-btn-linkedin: #0077b5;
+  --color-btn-github: #181717;
+  --color-btn-cv: #2ecc71;
+
+  --sidebar-desktop: 300px;
+  --sidebar-tablet: 200px;
+  --sidebar-mobile: 160px;
+}
+
+
 
 /* You can add global styles to this file, and also import other style files */
 html, body {
