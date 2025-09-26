@@ -27,7 +27,7 @@
 @media (max-width: 1024px) {
   .content.with-sidebar {
     margin-left: 220px;
-    width: calc(100% - 300px);
+    width: calc(100% - 350px);
   }
 }
 
@@ -35,6 +35,6 @@
 @media (max-width: 768px) {
   .content.with-sidebar {
     margin-left: 180px;
-    width: calc(100% - 350px);
+    width: calc(100% - 500px);
   }
 }
