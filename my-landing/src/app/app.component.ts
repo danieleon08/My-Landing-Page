@@ -7,31 +7,46 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   showTopHeader: boolean = true;
-  layoutConSidebar: boolean = false; // arranca sin sidebar
+  layoutConSidebar: boolean = false;
+
+  // Detecta el ancho de la ventana
+  private isLargeScreen(): boolean {
+    return window.innerWidth >= 768; // tablets y pcs
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-  const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
-  const vh = window.innerHeight; // altura visible del dispositivo
+    // 👉 si está en celular, no aplica el efecto
+    if (!this.isLargeScreen()) {
+      this.showTopHeader = true;
+      this.layoutConSidebar = false;
+      return;
+    }
 
-  // Definimos umbrales relativos
-  const threshold1 = vh * 0.5;  // mitad de la pantalla
-  const threshold2 = vh * 1.2;  // 1.2 pantallas scrolleadas
+    const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const vh = window.innerHeight;
 
-  if (scrollY < threshold1) {
-    // Al inicio -> mostrar header y no sidebar
-    this.showTopHeader = true;
-    this.layoutConSidebar = false;
-  } else if (scrollY >= threshold1 && scrollY <= threshold2) {
-    // En rango medio -> ocultar header y activar sidebar
-    this.showTopHeader = false;
-    this.layoutConSidebar = true;
-  } else if (scrollY > threshold2) {
-    // Después del scroll largo -> volver a header
-    this.showTopHeader = true;
-    this.layoutConSidebar = false;
+    const threshold1 = vh * 0.5;
+    const threshold2 = vh * 1.2;
+
+    if (scrollY < threshold1) {
+      this.showTopHeader = true;
+      this.layoutConSidebar = false;
+    } else if (scrollY >= threshold1 && scrollY <= threshold2) {
+      this.showTopHeader = false;
+      this.layoutConSidebar = true;
+    } else if (scrollY > threshold2) {
+      this.showTopHeader = true;
+      this.layoutConSidebar = false;
+    }
+  }
+
+  // también escucha cambios de tamaño de ventana (ej: rotar pantalla)
+  @HostListener('window:resize', [])
+  onResize() {
+    if (!this.isLargeScreen()) {
+      this.showTopHeader = true;
+      this.layoutConSidebar = false;
+    }
   }
 }
-
-}
-
