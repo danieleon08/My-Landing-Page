@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -6,6 +6,8 @@ import { Component, HostListener } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  @Input() forceSidebar: boolean = false; // nuevo input
+
   isMobile: boolean = window.innerWidth <= 768;
   menuOpen: boolean = false;
 
@@ -13,7 +15,7 @@ export class HeaderComponent {
   onResize() {
     this.isMobile = window.innerWidth <= 768;
     if (!this.isMobile) {
-      this.menuOpen = false; // cerrar menú si se vuelve a escritorio
+      this.menuOpen = false;
     }
   }
 
