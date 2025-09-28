@@ -7,19 +7,35 @@
       Me gusta crear soluciones digitales que aporten valor, aprender nuevas herramientas 
       y enfrentarme a retos que me hagan crecer profesional y personalmente.
     </p>
+    <!-- Hobbies -->
+    <div class="hobbies">
+      <h3 class="hobbies-title">Hobbies</h3>
+      <div class="hobbies-bubbles">
+        <div class="bubble"><i class="fas fa-dumbbell"></i> Practica deporte constante</div>
+        <div class="bubble"><i class="fas fa-running"></i> Corredor aficionado</div>
+        <div class="bubble"><i class="fas fa-futbol"></i> Apasionado por el fútbol</div>
+        <div class="bubble"><i class="fas fa-rocket"></i> Amante a ciencia ficción</div>
+        <div class="bubble"><i class="fas fa-lightbulb"></i> Emprendedor</div>
+        <div class="bubble"><i class="fas fa-camera"></i> Tomar fotos</div>
+        <div class="bubble"><i class="fas fa-graduation-cap"></i> Aprender constantemente</div>
+      </div>
+    </div>
+
   </div>
 
-  <!-- DERECHA: Carrusel vertical -->
+  <!-- DERECHA: Carrusel vertical / horizontal responsive -->
   <div class="about-right" [class.visible]="isVisible">
-    <div class="achievements-carousel">
-      <!-- Duplicamos la lista para efecto infinito -->
-      <div *ngFor="let logro of logrosDuplicados" class="achievement-card">
-        <i [class]="logro.icon"></i>
-        <div class="achievement-text">
-          <h3>{{ logro.title }}</h3>
-          <p>{{ logro.description }}</p>
+    <div class="achievements-viewport">
+      <div #achievementsTrack class="achievements-track">
+        <div *ngFor="let logro of logrosDuplicados" class="achievement-card">
+          <i [class]="logro.icon"></i>
+          <div class="achievement-text">
+            <h3>{{ logro.title }}</h3>
+            <p>{{ logro.description }}</p>
+          </div>
         </div>
       </div>
     </div>
   </div>
+
 </div>

@@ -8,7 +8,7 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   showTopHeader: boolean = true;
   layoutConSidebar: boolean = false;
-  isMobile: boolean = window.innerWidth <= 768;
+  isMobile: boolean = window.innerWidth <= 1024;
   sidebarOpen: boolean = false;
 
   @HostListener('window:scroll', [])

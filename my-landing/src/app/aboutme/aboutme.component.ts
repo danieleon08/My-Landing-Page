@@ -33,7 +33,7 @@ export class AboutmeComponent implements OnInit, OnDestroy {
     { icon: 'fas fa-project-diagram', title: 'Pensamiento Estratégico', description: 'Capaz de planificar a largo plazo y anticipar desafíos futuros' }
   ];
 
-  // Duplicamos logros para efecto infinito
+  // Duplicamos logros para crear efecto infinito en el carrusel
   get logrosDuplicados() {
     return [...this.logros, ...this.logros];
   }
@@ -41,12 +41,13 @@ export class AboutmeComponent implements OnInit, OnDestroy {
   constructor(private el: ElementRef) {}
 
   ngOnInit() {
+    // Activamos animación solo cuando la sección está visible
     this.observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          this.isVisible = true;  // activa la animación
+          this.isVisible = true;   // activa animación
         } else {
-          this.isVisible = false; // pausa cuando sales de la sección
+          this.isVisible = false;  // pausa animación
         }
       });
     }, { threshold: 0.2 });
@@ -55,6 +56,8 @@ export class AboutmeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.observer) this.observer.disconnect();
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   }
 }
