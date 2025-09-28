@@ -8,18 +8,13 @@ import { Component, HostListener } from '@angular/core';
 export class AppComponent {
   showTopHeader: boolean = true;
   layoutConSidebar: boolean = false;
-
-  // Detecta el ancho de la ventana
-  private isLargeScreen(): boolean {
-    return window.innerWidth >= 768; // tablets y pcs
-  }
+  isMobile: boolean = window.innerWidth <= 768;
+  sidebarOpen: boolean = false;
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // 👉 si está en celular, no aplica el efecto
-    if (!this.isLargeScreen()) {
-      this.showTopHeader = true;
-      this.layoutConSidebar = false;
+    if (this.isMobile) {
+      // en móvil no aplicamos el efecto de scroll
       return;
     }
 
@@ -41,12 +36,15 @@ export class AppComponent {
     }
   }
 
-  // también escucha cambios de tamaño de ventana (ej: rotar pantalla)
   @HostListener('window:resize', [])
   onResize() {
-    if (!this.isLargeScreen()) {
-      this.showTopHeader = true;
-      this.layoutConSidebar = false;
+    this.isMobile = window.innerWidth <= 768;
+    if (!this.isMobile) {
+      this.sidebarOpen = false; // cerrar sidebar si vuelve a escritorio
     }
+  }
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
   }
 }
