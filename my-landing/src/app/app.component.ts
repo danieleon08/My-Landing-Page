@@ -14,13 +14,14 @@ export class AppComponent {
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (this.isMobile) {
-      // en móvil no aplicamos el efecto de scroll
+      // en celular no aplica scroll effect
+      this.showTopHeader = true;
+      this.layoutConSidebar = false;
       return;
     }
 
     const scrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const vh = window.innerHeight;
-
     const threshold1 = vh * 0.5;
     const threshold2 = vh * 1.2;
 
@@ -40,7 +41,7 @@ export class AppComponent {
   onResize() {
     this.isMobile = window.innerWidth <= 768;
     if (!this.isMobile) {
-      this.sidebarOpen = false; // cerrar sidebar si vuelve a escritorio
+      this.sidebarOpen = false;
     }
   }
 

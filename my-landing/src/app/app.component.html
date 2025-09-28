@@ -1,24 +1,20 @@
 <div class="layout">
-  <!-- Header superior (visible al inicio) -->
-  <app-header-top *ngIf="showTopHeader && !isMobile" [class.fade-out]="!showTopHeader"></app-header-top>
+  <!-- Header superior -->
+  <app-header-top *ngIf="showTopHeader" [class.fade-out]="!showTopHeader"></app-header-top>
 
-  <!-- Sidebar (solo en escritorio/tablet grandes con scroll) -->
+  <!-- Sidebar (Desktop/Tablet con scroll) -->
   <app-header *ngIf="!showTopHeader && !isMobile" [class.slide-in]="!showTopHeader"></app-header>
 
-  <!-- Sidebar móvil desplegable -->
-  <div *ngIf="isMobile" class="sidebar-wrapper" [class.open]="sidebarOpen">
-    <app-header></app-header>
-  </div>
+  <!-- 📱 Pestaña lateral en móviles -->
+  <div *ngIf="isMobile" class="sidebar-tab" (click)="toggleSidebar()">☰</div>
 
-  <!-- Pestañita lateral en móviles -->
-  <button *ngIf="isMobile" class="sidebar-tab" (click)="toggleSidebar()">
-    ☰
-  </button>
+  <!-- Overlay borroso -->
+  <div *ngIf="sidebarOpen" class="overlay" (click)="toggleSidebar()"></div>
 
-  <!-- Overlay (borroso) -->
-  <div *ngIf="sidebarOpen && isMobile" class="overlay" (click)="toggleSidebar()"></div>
+  <!-- Sidebar en móviles -->
+  <app-header *ngIf="sidebarOpen && isMobile" class="mobile-sidebar"></app-header>
 
-  <main class="content" [ngClass]="{ 'with-sidebar': layoutConSidebar && !isMobile }">
+  <main class="content" [ngClass]="{ 'with-sidebar': layoutConSidebar }">
     <router-outlet></router-outlet>
     <app-footer></app-footer>
   </main>
