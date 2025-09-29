@@ -34,9 +34,11 @@ Actualmente ya incluye las secciones principales del portafolio y se sigue optim
 
 ---
 
-## 📸 Vista previa (ejemplo)
+## 📸 Vista previa
 
-> ✨ *Aquí puedes agregar capturas de pantalla o GIFs mostrando el diseño de la página.*
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b5a6e128-a8b1-4038-92b7-f84dad9423e9" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/0e49c9aa-bc99-4c2f-812e-62bcac5b4697" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/78ab5af7-e89c-4592-9c09-4c642ecdd6d3" />
 
 ---
 
