@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-cursos',
@@ -18,10 +18,16 @@ export class CursosComponent implements OnInit, OnDestroy {
   ];
 
   currentIndex = 0;
-  visibleCards = 3; // número de tarjetas visibles
+  visibleCards = 3; // 🌟 número de tarjetas visibles (depende del ancho de pantalla)
   private carouselIntervalId: any;
 
+  // Variables para swipe
+  private touchStartX = 0;
+  private touchEndX = 0;
+
   ngOnInit(): void {
+    this.updateVisibleCards(); // ajustar al iniciar
+
     // 🌟 Movimiento automático del carrusel
     this.carouselIntervalId = setInterval(() => {
       this.nextSlide();
@@ -29,7 +35,6 @@ export class CursosComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    // Limpiar intervalos cuando el componente se destruya
     if (this.carouselIntervalId) {
       clearInterval(this.carouselIntervalId);
     }
@@ -49,6 +54,38 @@ export class CursosComponent implements OnInit, OnDestroy {
       this.currentIndex--;
     } else {
       this.currentIndex = this.courses.length - this.visibleCards;
+    }
+  }
+
+  // 📱 Swipe en móviles
+  onTouchStart(event: TouchEvent): void {
+    this.touchStartX = event.touches[0].clientX;
+  }
+
+  onTouchMove(event: TouchEvent): void {
+    this.touchEndX = event.touches[0].clientX;
+  }
+
+  onTouchEnd(): void {
+    if (this.touchStartX - this.touchEndX > 50) {
+      this.nextSlide(); // swipe left → siguiente
+    }
+    if (this.touchEndX - this.touchStartX > 50) {
+      this.prevSlide(); // swipe right → anterior
+    }
+    this.touchStartX = 0;
+    this.touchEndX = 0;
+  }
+
+  // 📏 Ajustar visibleCards según tamaño de pantalla
+  @HostListener('window:resize')
+  updateVisibleCards(): void {
+    if (window.innerWidth < 768) {
+      this.visibleCards = 1;
+    } else if (window.innerWidth < 1024) {
+      this.visibleCards = 2;
+    } else {
+      this.visibleCards = 3;
     }
   }
 }

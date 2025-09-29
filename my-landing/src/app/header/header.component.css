@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   width: var(--sidebar-desktop);
-  height: 100vh;
+  height: 500vh;
   background-color: var(--color-bg-sidebar);
   color: var(--color-text-primary);
   display: flex;
@@ -14,7 +14,7 @@
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
   overflow-y: auto;
   scrollbar-width: none;
-  margin-top: 700px;
+  margin-top: 650px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -177,3 +177,4 @@
     margin-top: 2000px;
   }
 }
+

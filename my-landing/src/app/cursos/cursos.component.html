@@ -2,17 +2,24 @@
 <div class="courses-section" id="cursos">
   <h2 class="section-title2">Cursos y Educación</h2>
 
-  <div class="carousel">
-    <!-- Botón izquierda -->
+  <div 
+    class="carousel" 
+    (touchstart)="onTouchStart($event)" 
+    (touchmove)="onTouchMove($event)" 
+    (touchend)="onTouchEnd()">
+
+    <!-- Botón izquierda (oculto en móviles con CSS) -->
     <button class="carousel-btn left" (click)="prevSlide()">
       <i class="fas fa-chevron-left"></i>
     </button>
 
     <!-- Track -->
-    <div class="carousel-track" 
-         [style.transform]="'translateX(-' + currentIndex * (100 / visibleCards) + '%)'">
+    <div 
+      class="carousel-track" 
+      [style.transform]="'translateX(-' + currentIndex * (100 / visibleCards) + '%)'">
+      
       <div class="card" *ngFor="let course of courses">
-        <img [src]="course.image" alt="course image">
+        <img [src]="course.image" alt="Imagen del curso">
         <div class="card-content">
           <h3>{{ course.title }}</h3>
           <p>{{ course.description }}</p>
@@ -20,7 +27,7 @@
       </div>
     </div>
 
-    <!-- Botón derecha -->
+    <!-- Botón derecha (oculto en móviles con CSS) -->
     <button class="carousel-btn right" (click)="nextSlide()">
       <i class="fas fa-chevron-right"></i>
     </button>

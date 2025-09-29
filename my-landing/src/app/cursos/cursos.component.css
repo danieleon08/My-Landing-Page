@@ -1,6 +1,9 @@
-/* 4. CURSOS */
+/* ============================= */
+/* 4. CURSOS - CARRUSEL */
+/* ============================= */
+
 .courses-section {
-  background: var(--dark-bg);
+  background: var(--color-dark-bg);
   padding: 80px 20px;
   text-align: center;
   position: relative;
@@ -8,7 +11,7 @@
 }
 
 .section-title2 {
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 40px;
   font-size: 2rem;
   font-weight: bold;
@@ -16,7 +19,7 @@
 
 .carousel {
   overflow: hidden;
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
   position: relative;
 }
@@ -27,10 +30,66 @@
   will-change: transform;
 }
 
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Centrar */
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-card {
+  flex: 0 0 calc(100% / var(--cards-visible, 1));
+  box-sizing: border-box;
+  margin: 0 10px; /* espacio entre tarjetas */
+}
+
+/* Botones de navegación */
+.carousel-container button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.carousel-container button:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+/* Flecha izquierda afuera */
+.carousel-container .prev {
+  left: -50px; /* fuera del carrusel */
+}
+
+/* Flecha derecha afuera */
+.carousel-container .next {
+  right: -50px;
+}
+
+/* En móviles ocultar flechas */
+@media (max-width: 768px) {
+  .carousel-container button {
+    display: none;
+  }
+}
+
+
 .card {
-  flex: 0 0 calc(100% / 3); /* 3 tarjetas visibles */
+  flex: 0 0 calc(100% / 3); /* 3 tarjetas visibles en desktop */
   margin: 0 15px;
-  background: #1e1e2f;
+  background: var(--color-card-bg);
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.4);
@@ -49,7 +108,7 @@
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-bottom: 2px solid #03dac6;
+  border-bottom: 2px solid var(--color-secondary);
   transition: transform 0.5s ease, filter 0.5s ease;
 }
 
@@ -60,31 +119,31 @@
 
 .card-content {
   padding: 25px;
-  color: #ffffff;
+  color: var(--color-text-primary);
   position: relative;
 }
 
 .card-content h3 {
   font-size: 1.3rem;
   margin-bottom: 15px;
-  color: #03dac6;
+  color: var(--color-secondary);
   font-weight: 700;
 }
 
 .card-content p {
   font-size: 1rem;
-  color: #cfcfcf;
+  color: var(--color-text-secondary);
   line-height: 1.6;
 }
 
-/* Botones */
+/* Botones de navegación */
 .carousel-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   background: rgba(36, 76, 84, 0.9);
   border: none;
-  color: #ffffff;
+  color: var(--color-white);
   font-size: 1.8rem;
   padding: 15px;
   width: 60px;
@@ -96,7 +155,7 @@
 }
 
 .carousel-btn:hover {
-  background: #03dac6;
+  background: var(--color-secondary);
   transform: translateY(-50%) scale(1.15);
 }
 
@@ -108,5 +167,36 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+/* ============================= */
+/* RESPONSIVE */
+/* ============================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 calc(100% / 2); /* 2 tarjetas visibles */
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 calc(100% / 1.2); /* 1 tarjeta y media (asoma la siguiente) */
+    margin: 0 10px;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .card {
+    flex: 0 0 100%; /* 1 tarjeta completa */
+    margin: 0 5px;
+  }
+
+  .carousel-btn {
+    display: none; /* Ocultamos botones en móviles */
   }
 }

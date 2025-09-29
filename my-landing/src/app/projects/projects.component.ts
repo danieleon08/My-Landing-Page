@@ -70,4 +70,13 @@ export class ProjectsComponent implements AfterViewInit {
   selectProject(project: any): void {
     this.selectedProject = project;
   }
+
+  goToProjectSection(project: any): void {
+    this.selectedProject = project; // mantiene la lógica que ya tenías
+    const section = document.getElementById("titulo-proyecto");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
 }

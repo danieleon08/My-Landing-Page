@@ -1,6 +1,6 @@
 <!-- 6. PROYECTOS -->
 <div class="projects-section" id="proyectos">
-  <div class="section-title2">Proyectos Destacados</div>
+  <div id="titulo-proyecto" class="section-title2">Proyectos Destacados</div>
 
   <div class="projects-container">
     <!-- Detalle del proyecto -->
@@ -26,17 +26,18 @@
     <!-- Lista de proyectos -->
    <div class="projects-list">
       <div class="project-card" 
-          *ngFor="let project of projects; let i = index"
-          (click)="selectProject(project)"
-          [class.active]="selectedProject === project"
-          [style.animation-delay]="i * 0.1 + 's'">
+        *ngFor="let project of projects; let i = index"
+        (click)="goToProjectSection(project)"
+        [class.active]="selectedProject === project"
+        [style.animation-delay]="i * 0.1 + 's'">
         <div class="project-image">
           <img [src]="project.image" alt="proyecto">
-          <div class="overlay">
-            <h3>{{ project.title }}</h3>
-          </div>
+            <div class="overlay">
+              <h3>{{ project.title }}</h3>
+            </div>
         </div>
       </div>
+
     </div>
     
   </div>

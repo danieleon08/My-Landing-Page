@@ -26,7 +26,7 @@
 
 .header-top .nav-links {
   display: flex;
-  gap: 150px;
+  gap: 100px;
 }
 
 .header-top .nav-links a {

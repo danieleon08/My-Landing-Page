@@ -12,7 +12,7 @@
 /* ---- LADO IZQUIERDO ---- */
 .section-title {
   font-size: 2.5rem;
-  font-weight: 900;
+  font-weight: 900px;
   color: var(--color-highlight);
   margin-bottom: 30px;
   text-transform: uppercase;
@@ -74,6 +74,7 @@
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
+  margin-right: 50px;
 }
 
 .about-right.visible {
@@ -172,6 +173,7 @@
   .achievement-card {
     width: 250px; /* 🔥 ajusta el ancho */
     flex-shrink: 0;
+     flex: 0 0 auto; /* asegura que cada tarjeta conserve su tamaño */
   }
 }
 
@@ -184,7 +186,7 @@
 /* 🔥 Scroll infinito horizontal */
 @keyframes scroll-horizontal {
   from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  to   { transform: translateX(-50%); } /* se recorre todo el ancho duplicado */
 }
 
 /* Aplica la animación según el viewport */
@@ -200,6 +202,8 @@
   .achievements-track {
     flex-direction: row;
     animation-name: scroll-horizontal;
-    animation-duration: 150s; /* default, ajustable en TS */
+    animation-duration: 120s; /* ajusta la velocidad (más grande = más lento) */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
   }
 }
