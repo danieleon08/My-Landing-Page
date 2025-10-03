@@ -5,7 +5,7 @@
   gap: 40px;
   padding: 80px 40px;
   align-items: flex-start;
-  background: var(--color-bg-about);
+  background: var(--color-bg-sidebar);
   color: var(--color-text-main);
 }
 

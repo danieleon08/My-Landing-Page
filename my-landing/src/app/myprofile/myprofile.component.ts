@@ -6,7 +6,7 @@ import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
   styleUrls: ['./myprofile.component.css']
 })
 export class MyprofileComponent implements OnInit, OnDestroy {
-  backgroundUrl: string = 'assets/images/fondogris.png';
+  
 
   // 🌟 Palabras dinámicas
   words: string[] = [

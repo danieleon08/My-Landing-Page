@@ -1,17 +1,20 @@
 <!-- 4. CURSOS Y EDUCACIÓN -->
 <div class="courses-section" id="cursos">
   <h2 class="section-title2">Cursos y Educación</h2>
+  <!-- Botón izquierda (oculto en móviles con CSS) -->
+  <!-- Botón izquierda -->
+  <button class="carousel-btn left" (click)="prevSlide()">
+    <div class="arrow">
+      <div class="arrow-top"></div>
+      <div class="arrow-bottom"></div>
+    </div>
+  </button>
 
   <div 
     class="carousel" 
     (touchstart)="onTouchStart($event)" 
     (touchmove)="onTouchMove($event)" 
-    (touchend)="onTouchEnd()">
-
-    <!-- Botón izquierda (oculto en móviles con CSS) -->
-    <button class="carousel-btn left" (click)="prevSlide()">
-      <i class="fas fa-chevron-left"></i>
-    </button>
+    (touchend)="onTouchEnd()">    
 
     <!-- Track -->
     <div 
@@ -24,12 +27,22 @@
           <h3>{{ course.title }}</h3>
           <p>{{ course.description }}</p>
         </div>
+        <button class="learn-more">
+          <span aria-hidden="true" class="circle">
+          <span class="icon arrow"></span>
+          </span>
+          <span class="button-text">Learn More</span>
+        </button>
       </div>
     </div>
 
-    <!-- Botón derecha (oculto en móviles con CSS) -->
-    <button class="carousel-btn right" (click)="nextSlide()">
-      <i class="fas fa-chevron-right"></i>
-    </button>
   </div>
+  <!-- Botón derecha (oculto en móviles con CSS) -->
+    <!-- Botón derecha -->
+  <button class="carousel-btn right" (click)="nextSlide()">
+    <div class="arrow arrow-right">
+      <div class="arrow-top"></div>
+      <div class="arrow-bottom"></div>
+    </div>
+  </button>
 </div>
