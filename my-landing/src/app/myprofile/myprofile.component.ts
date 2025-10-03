@@ -9,22 +9,24 @@ export class MyprofileComponent implements OnInit, OnDestroy {
   backgroundUrl: string = 'assets/images/fondogris.png';
 
   // 🌟 Palabras dinámicas
-  words: string[] = ['DEV FRONTEND', 'INNOVADOR', 'DEV MÓVIL', 'CREATIVO', 'LÍDER TECNOLÓGICO', 'EMPRENDEDOR'];
+  words: string[] = [
+    'DEV FRONTEND',
+    'INNOVADOR',
+    'DEV MÓVIL',
+    'CREATIVO',
+    'LÍDER TECNOLÓGICO',
+    'EMPRENDEDOR'
+  ];
   currentWord: string = this.words[0];
   private wordIndex: number = 0;
   private wordIntervalId: any;
 
   isMobile: boolean = window.innerWidth <= 768;
-  sidebarActive: boolean = false; // se puede sincronizar con el estado global de tu layout
 
   ngOnInit(): void {
-    // 🌟 Animación de palabras dinámicas
-    this.wordIntervalId = setInterval(() => {
-      this.wordIndex = (this.wordIndex + 1) % this.words.length;
-      this.currentWord = this.words[this.wordIndex];
-    }, 3000);
+    this.startWordAnimation();
 
-    // 🌟 Detectar viewport (para animaciones solo en móviles)
+    // 🌟 Detectar viewport (animaciones móviles)
     if (this.isMobile) {
       const target = document.querySelector('.myprofile');
       if (target) {
@@ -41,6 +43,32 @@ export class MyprofileComponent implements OnInit, OnDestroy {
         observer.observe(target);
       }
     }
+  }
+
+  /**
+   * 🔥 Animación fluida de palabras (fade-out → cambio → fade-in)
+   */
+  startWordAnimation() {
+    this.wordIntervalId = setInterval(() => {
+      const highlightEl = document.querySelector('.highlight');
+      if (highlightEl) {
+        // Fade out
+        highlightEl.classList.add('fade-out');
+
+        setTimeout(() => {
+          // Cambiar palabra
+          this.wordIndex = (this.wordIndex + 1) % this.words.length;
+          this.currentWord = this.words[this.wordIndex];
+
+          // Fade in
+          highlightEl.classList.remove('fade-out');
+          highlightEl.classList.add('fade-in');
+
+          // Quitar clase después de animación
+          setTimeout(() => highlightEl.classList.remove('fade-in'), 800);
+        }, 600); // tiempo para que termine el fade-out
+      }
+    }, 3500); // cada 3.5 segundos cambia
   }
 
   @HostListener('window:resize')
