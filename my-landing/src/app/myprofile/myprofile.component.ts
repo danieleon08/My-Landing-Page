@@ -14,7 +14,6 @@ export class MyprofileComponent implements OnInit, OnDestroy {
     'INNOVADOR',
     'DEV MÓVIL',
     'CREATIVO',
-    'LÍDER TECNOLÓGICO',
     'EMPRENDEDOR'
   ];
   currentWord: string = this.words[0];
