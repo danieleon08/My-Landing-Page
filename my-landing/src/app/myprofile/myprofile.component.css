@@ -17,8 +17,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 60%;      /* 🔹 antes estaba en 100% */
-  height: 60%;     /* 🔹 reducimos para dar menos zoom */
+  width: 100%;      /* 🔹 antes estaba en 100% */
+  height: 100%;     /* 🔹 reducimos para dar menos zoom */
   transform: translate(-50%, -50%) rotateX(-20deg) rotateY(15deg) scale(0.8);
   transform-style: preserve-3d;
   transition: 0.5s all;
