@@ -19,7 +19,7 @@
   left: 50%;
   width: 100%;      /* 🔹 antes estaba en 100% */
   height: 100%;     /* 🔹 reducimos para dar menos zoom */
-  transform: translate(-50%, -50%) rotateX(-20deg) rotateY(15deg) scale(0.8);
+  transform: translate(-50%, -50%) rotateX(-20deg) rotateY(15deg) scale(1.5); /* 🔄 Aumentado */
   transform-style: preserve-3d;
   transition: 0.5s all;
   z-index: 0;
@@ -40,7 +40,8 @@
   height: 100%;
   filter: blur(100px);
   box-shadow: 0 0 400px 50px var(--color-secondary);
-  transform: rotateX(90deg) scale(1.1) translateZ(-200px);
+  border-radius: 50%; /* 🌟 Hacemos el efecto circular */
+  transform: rotateX(90deg) scale(1.1) translateZ(-100px);
 }
 
 /*.inn6 {
@@ -81,7 +82,7 @@
 
 /* 🔥 Palabra dinámica con transición fluida */
 .highlight {
-  background: linear-gradient(90deg, #2c6dfa, #1e3048, #99afff);
+  background: linear-gradient(90deg, var(--color-highlight), #cbd331, #fff588);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
