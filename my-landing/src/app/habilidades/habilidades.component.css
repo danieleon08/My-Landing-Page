@@ -1,18 +1,56 @@
+/* === FONDO GENERAL CON CUADRÍCULA === */
+.grid-wrapper {
+  min-height: 1000px;
+  width: 100%;
+  position: relative;
+  background-color: var(--color-bg-sidebar); /* fondo base claro */
+  overflow: hidden;
+}
+
+.grid-background {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  background-image: linear-gradient(to right, #232121 1px, transparent 1px),
+    linear-gradient(to bottom, #2d2f32 1px, transparent 1px);
+  background-size: 20px 30px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    var(--color-bg-sidebar) 80%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 70% 60% at 50% 0%,
+    var(--color-bg-sidebar) 80%,
+    transparent 100%
+  );
+}
+
+/* === CONTENIDO INTERIOR === */
+.skills-content {
+  position: relative;
+  z-index: 2;
+  padding: 60px 30px;
+}
+
 /* === TÍTULO DE SECCIÓN === */
 .section-title2 {
   font-size: 2.5rem;
   font-weight: 900;
-  color: var(--color-text-main);
+  color: var(--color-highlight);
   margin-bottom: 50px;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 3px;
-  position: relative;
 }
 
 /* === CONTENEDOR PRINCIPAL === */
 .skills-section {
-  margin: 50px 30px;
+  margin: 0 auto;
+  max-width: 1100px;
 }
 
 .skills-grid {
@@ -27,23 +65,24 @@
   position: relative;
   width: 230px;
   height: 300px;
-  background-color: #000;
+  background-color: var(--color-bg-sidebar); /* ✅ Fondo blanco de las tarjetas */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding: 18px 14px;
   gap: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
   opacity: 0;
   transform: translateY(50px) scale(0.95);
   transition: all 0.6s ease;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* === EFECTO DE GRADIENTE Y BRILLO === */
+/* === EFECTO DE BRILLO EN HOVER === */
 .card::before {
   content: '';
   position: absolute;
@@ -64,9 +103,9 @@
   z-index: -1;
   position: absolute;
   inset: 0;
-  background: linear-gradient(-45deg, #050505 0%, #000000 100%);
+  background: linear-gradient(-45deg, #000000 0%, #000000 100%);
   transform: translate3d(0, 0, 0) scale(0.95);
-  filter: blur(20px);
+  filter: blur(18px);
 }
 
 .card:hover::after {
@@ -80,27 +119,27 @@
 /* === ICONO === */
 .skill-icon {
   font-size: 40px;
-  color: #ffffff;
+  color: var(--color-highlight);
   margin-bottom: 8px;
   transition: transform 0.4s ease, color 0.4s ease;
 }
 
 .card:hover .skill-icon {
-  transform: scale(1.15) rotate(8deg);
-  color: #f5b60b;
+  transform: scale(1.2) rotate(6deg);
+  color: #fb923c;
 }
 
 /* === TEXTO INTERIOR === */
 .heading {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-highlight);
   text-transform: uppercase;
 }
 
 .description {
   font-size: 0.85rem;
-  color: #ccc;
+  color: var(--color-text-primary);
   line-height: 1.4;
   margin: 5px 0;
 }
@@ -108,12 +147,12 @@
 .entity {
   font-size: 0.8rem;
   font-weight: 600;
-  color: #40c9ff;
+  color: #2563eb;
 }
 
 .date {
   font-size: 0.75rem;
-  color: #e81cff;
+  color: #dc2626;
   font-weight: 600;
 }
 
