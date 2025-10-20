@@ -195,54 +195,164 @@ button:active .button-text {
 }
 
 
+/* ============================= */
+/* NUEVO DISEÑO DE TARJETAS */
+/* ============================= */
+
 .card {
   flex: 0 0 calc(100% / 3); /* 3 tarjetas visibles en desktop */
   margin: 0 15px;
-  background: var(--color-card-bg);
+  width: 280px;
   border-radius: 20px;
+  background: var(--color-card-bg);
+  padding: 5px;
   overflow: hidden;
-  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.4);
-  transition: all 0.5s ease;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
   transform: translateY(50px);
   animation: slideUp 0.8s ease forwards;
 }
 
 .card:hover {
-  transform: translateY(-15px) scale(1.05);
-  box-shadow: 0px 25px 50px rgba(3, 218, 198, 0.3);
+  transform: scale(1.05);
 }
 
-.card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 2px solid var(--color-secondary);
-  transition: transform 0.5s ease, filter 0.5s ease;
-}
-
-.card:hover img {
-  transform: scale(1.1);
-  filter: brightness(1.2) contrast(1.1);
-}
-
-.card-content {
-  padding: 25px;
-  color: var(--color-text-primary);
+.card .top-section {
+  height: 180px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-highlight) 100%);
   position: relative;
 }
 
-.card-content h3 {
-  font-size: 1.3rem;
-  margin-bottom: 15px;
-  color: var(--color-secondary);
-  font-weight: 700;
+.card .top-section .border {
+  border-bottom-right-radius: 10px;
+  height: 30px;
+  width: 160px;
+  background: var(--color-card-bg);
+  position: relative;
+  transform: skew(-40deg);
+  box-shadow: -10px -10px 0 0 var(--color-card-bg);
 }
 
-.card-content p {
-  font-size: 1rem;
+.card .top-section .border::before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 0;
+  right: -15px;
+  background: rgba(255, 255, 255, 0);
+  border-top-left-radius: 10px;
+  box-shadow: -5px -5px 0 2px var(--color-card-bg);
+}
+
+.card .top-section::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  left: 0;
+  background: rgba(255, 255, 255, 0);
+  height: 15px;
+  width: 15px;
+  border-top-left-radius: 15px;
+  box-shadow: -5px -5px 0 2px var(--color-card-bg);
+}
+
+.card .top-section .icons {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: auto;
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 3;
+  padding: 8px 15px;
+}
+
+.card .top-section .icons .view-icon {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.card .top-section .icons .view-icon .svg {
+  height: 100%;
+  fill: var(--color-card-bg);
+  transition: fill 0.3s ease;
+}
+
+.card .top-section .icons .view-icon .svg:hover {
+  fill: var(--color-text-primary);
+}
+
+.card .top-section .course-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.card .top-section .course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .top-section .course-image img {
+  transform: scale(1.05);
+}
+
+.card .bottom-section {
+  margin-top: 15px;
+  padding: 10px 5px;
+}
+
+.card .bottom-section .title {
+  display: block;
+  font-size: 17px;
+  font-weight: bolder;
+  color: var(--color-text-primary);
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.card .bottom-section .row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.card .bottom-section .row .item {
+  flex: 30%;
+  text-align: center;
+  padding: 5px;
   color: var(--color-text-secondary);
-  line-height: 1.6;
+}
+
+.card .bottom-section .row .item .big-text {
+  font-size: 12px;
+  display: block;
+  font-weight: bold;
+}
+
+.card .bottom-section .row .item .regular-text {
+  font-size: 9px;
+}
+
+.card .bottom-section .row .item:nth-child(2) {
+  border-left: 1px solid rgba(255, 255, 255, 0.126);
+  border-right: 1px solid rgba(255, 255, 255, 0.126);
 }
 
 /* Botón base (posición y hover ya la tienes definida) */

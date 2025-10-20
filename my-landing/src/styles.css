@@ -11,6 +11,8 @@
 :root {
   --color-bg-sidebar: #06050e;
   --color-text-primary: #ffffff;
+  --color-primary: #0077ff;
+  --color-secondary: #f0f0f0;
   --color-text-secondary: #f1c63a;
   --color-highlight: #e59c2f;
 
