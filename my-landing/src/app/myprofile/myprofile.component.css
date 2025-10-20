@@ -12,60 +12,45 @@
   font-family: 'Anton', sans-serif;
 }
 
-/* 🌌 NUEVO FONDO ANIMADO HOLE */
-.hole {
+/* 🌌 NUEVO FONDO ANIMADO CON CÍRCULOS FLOTANTES */
+.container {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  transform: translateX(-50%);
+  height: 70%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  overflow: hidden;
+  align-items: center;
   z-index: 0; /* Detrás del texto */
+  width: 100%;
 }
 
-.hole i {
+.item {
   position: absolute;
-  display: block;
-  width: 500px;
-  height: 500px;
+  background-color: transparent;
+  width: calc(var(--i) * 9vmin);
+  height: calc(var(--i) * 5vmin);
   border-radius: 50%;
-  opacity: 0;
-  animation: scale 3s linear infinite;
-  box-shadow: 0 0 60px rgba(255, 255, 255, 0.3);
-  background: radial-gradient(circle, var(--color-text-dark) 0%, transparent 80%);
+  border: 0.4vmin solid var(--color-text-secondary);
+  transform-style: preserve-3d;
+  transform: rotateX(70deg) translateZ(50px);
+  animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+  box-shadow: 0px 0px 8px var(--color-highlight),
+    inset 0px 0px 8px var(--color-highlight);
+  opacity: 0.3;
 }
 
-/* 🔄 Retrasos en la animación de cada pulso */
-.hole i:nth-child(1) { animation-delay: 0.3s; }
-.hole i:nth-child(2) { animation-delay: 0.6s; }
-.hole i:nth-child(3) { animation-delay: 0.9s; }
-.hole i:nth-child(4) { animation-delay: 1.2s; }
-.hole i:nth-child(5) { animation-delay: 1.5s; }
-.hole i:nth-child(6) { animation-delay: 1.8s; }
-.hole i:nth-child(7) { animation-delay: 2.1s; }
-.hole i:nth-child(8) { animation-delay: 2.4s; }
-.hole i:nth-child(9) { animation-delay: 2.7s; }
-.hole i:nth-child(10) { animation-delay: 3s; }
-
-@keyframes scale {
-  0% {
-    transform: scale(2);
-    opacity: 0;
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
-  }
-  50% {
-    transform: scale(1) translateY(-5px);
-    opacity: 1;
-    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
-  }
+@keyframes my-move {
+  0%,
   100% {
-    transform: scale(0.2) translateY(5px);
-    opacity: 0;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
+    transform: rotateX(70deg) translateZ(50px) translateY(0px);
+    filter: hue-rotate(0deg);
+  }
+
+  50% {
+    transform: rotateX(70deg) translateZ(50px) translateY(-50vmin);
+    filter: hue-rotate(180deg);
   }
 }
 
@@ -99,6 +84,7 @@
 .highlight {
   background: var(--color-highlight);
   background-size: 200% auto;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-style: italic;
@@ -107,7 +93,9 @@
   animation: gradientShift 6s linear infinite;
   transition: opacity 0.8s ease, transform 0.8s ease;
   opacity: 1;
+  position: relative;
 }
+
 
 .fade-out {
   opacity: 0;
@@ -118,6 +106,7 @@
   opacity: 1;
   transform: translateY(0);
 }
+
 
 /* 🌈 Animación del gradiente en highlight */
 @keyframes gradientShift {
