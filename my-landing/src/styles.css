@@ -7,23 +7,12 @@
 
 }
 
-:root {
-  --color-primary: #244C54;
-  --color-secondary: #03dac6;
-  --color-dark-bg: #06050e;
-  --color-light-bg: #f8f9fa;
-  --color-white: #ffffff;
-  --color-text-dark: #333333;
-  --color-text-light: #666666;
-  --gradient: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
-}
-
 
 :root {
   --color-bg-sidebar: #06050e;
   --color-text-primary: #ffffff;
-  --color-text-secondary: #bbb;
-  --color-highlight: #DAC29E;
+  --color-text-secondary: #f1c63a;
+  --color-highlight: #e59c2f;
 
   --color-btn-contact: #7a3eff;
   --color-btn-linkedin: #0077b5;
@@ -39,7 +28,6 @@
   --color-bg-about: #111;
   --color-text-main: #ffffff;
   --color-text-secondary: #bbb;
-  --color-highlight: #DAC29E;
 
   --color-card-bg: #1e1e1e;
   --color-card-hover-border: #DAC29E;

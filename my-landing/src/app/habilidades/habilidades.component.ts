@@ -10,14 +10,14 @@ export class HabilidadesComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
   ngAfterViewInit(): void {
-    const cards = this.el.nativeElement.querySelectorAll('.skill-card');
+    const cards = this.el.nativeElement.querySelectorAll('.card');
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
         } else {
-          entry.target.classList.remove('visible'); // 👈 se reinicia el efecto al salir
+          entry.target.classList.remove('visible');
         }
       });
     }, { threshold: 0.2 });
