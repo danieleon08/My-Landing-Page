@@ -219,7 +219,7 @@ button:active .button-text {
 }
 
 .card .top-section {
-  height: 180px;
+  height: 300px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -229,8 +229,8 @@ button:active .button-text {
 
 .card .top-section .border {
   border-bottom-right-radius: 10px;
-  height: 30px;
-  width: 160px;
+  height: 80px;
+  width: 250px;
   background: var(--color-card-bg);
   position: relative;
   transform: skew(-40deg);
