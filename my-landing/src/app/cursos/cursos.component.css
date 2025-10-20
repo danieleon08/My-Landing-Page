@@ -471,10 +471,24 @@ button:active .button-text {
     flex: 0 0 calc(100% / 1.2); /* 1 tarjeta y media (asoma la siguiente) */
     margin: 0 10px;
   }
+
+  .carousel-btn {
+    display: none; /* Ocultamos botones en móviles */
+  }
+
+
+  .carousel {
+
+  margin-left: 10px;
+  margin-right: 10px ;
+  gap: 5px;
+}
+
+
 }
 
 /* Celulares pequeños */
-@media (max-width: 480px) {
+@media (max-width: 375px) {
   .card {
     flex: 0 0 100%; /* 1 tarjeta completa */
     margin: 0 5px;
@@ -483,4 +497,11 @@ button:active .button-text {
   .carousel-btn {
     display: none; /* Ocultamos botones en móviles */
   }
+
+  .carousel {
+
+  margin-left: 10px;
+  margin-right: 10px ;
+  gap: 5px;
+}
 }
