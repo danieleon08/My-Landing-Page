@@ -7,14 +7,13 @@
 
 }
 
-
-:root {
-  --color-bg-sidebar: #06050e;
-  --color-text-primary: #ffffff;
-  --color-primary: #0077ff;
-  --color-secondary: #f0f0f0;
-  --color-text-secondary: #f1c63a;
-  --color-highlight: #e59c2f;
+:root{
+  --color-main: #06050e;
+  --color-main2: #2d2f32;
+  --color-second: #DAC29E;
+  --color-title: #e59c2f;
+  --color-border: #f1c63a;
+  --color-text2: #f0f0f0;
 
   --color-btn-contact: #7a3eff;
   --color-btn-linkedin: #0077b5;
@@ -24,6 +23,17 @@
   --sidebar-desktop: 290px;
   --sidebar-tablet: 200px;
   --sidebar-mobile: 140px;
+}
+
+
+:root {
+  --color-bg-sidebar: #06050e;
+  --color-text-primary: #ffffff;
+  --color-primary: #0077ff;
+  --color-secondary: #f0f0f0;
+  --color-text-secondary: #f1c63a;
+  --color-highlight: #e59c2f;
+
 }
 
 :root {

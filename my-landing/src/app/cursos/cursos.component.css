@@ -3,7 +3,7 @@
 /* ============================= */
 
 .courses-section {
-  background: var(--color-dark-bg);
+  background: var(--color-main);
   padding: 80px 20px;
   text-align: center;
   position: relative;
@@ -11,9 +11,9 @@
 }
 
 .section-title2 {
-  color: var(--color-text-primary);
+  color: var(--color-title);
   margin-bottom: 40px;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
 }
 
@@ -43,7 +43,7 @@
 
 
 .carousel-card {
-  flex: 0 0 calc(100% / var(--cards-visible, 1));
+  flex: 0 0 calc(100% / var(--color-main2, 1));
   box-sizing: border-box;
   margin: 0 10px; /* espacio entre tarjetas */
 }
@@ -53,9 +53,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.3);
+  background: var(--color-main);
   border: none;
-  color: #fff;
+  color: var(--color-text2);
   font-size: 2rem;
   padding: 10px;
   cursor: pointer;
@@ -64,7 +64,7 @@
 }
 
 .carousel-container button:hover {
-  background: rgba(0, 0, 0, 0.6);
+  background: var(--color-main);
 }
 
 /* Flecha izquierda afuera */
@@ -99,13 +99,13 @@ button.learn-more {
 
 button.learn-more .circle {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
-  box-shadow: 0 0 5px 1px white;
+  box-shadow: 0 0 5px 1px var(--color-text2);
   position: relative;
   display: block;
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #282936;
+  background: var(--color-main2);
   border-radius: 1.625rem;
 }
 
@@ -115,7 +115,7 @@ button.learn-more .circle .icon {
   top: 0;
   bottom: 0;
   margin: auto;
-  background: #fff;
+  background: var(--color-text2);
 }
 
 button.learn-more .circle .icon.arrow {
@@ -133,8 +133,8 @@ button.learn-more .circle .icon.arrow::before {
   right: 0.0625rem;
   width: 0.625rem;
   height: 0.625rem;
-  border-top: 0.125rem solid #fff;
-  border-right: 0.125rem solid #fff;
+  border-top: 0.125rem solid var(--color-text2);
+  border-right: 0.125rem solid var(--color-text2);
   transform: rotate(45deg);
 }
 
@@ -147,7 +147,7 @@ button.learn-more .button-text {
   bottom: 0;
   padding: 0.75rem 0;
   margin: 0 0 0 1.85rem;
-  color: rgba(255, 255, 255, 0.493);
+  color: var(--color-second);
   font-weight: 700;
   line-height: 1.6;
   text-align: center;
@@ -156,7 +156,7 @@ button.learn-more .button-text {
 
 button:hover .circle {
   width: 100%;
-  box-shadow: 0 0 10px 2px white;
+  box-shadow: 0 0 10px 2px var(--color-text2);
 }
 
 button:hover .button-text {
@@ -164,7 +164,7 @@ button:hover .button-text {
 }
 
 button:hover .circle .icon.arrow {
-  background: #fff;
+  background: var(--color-text2);
   transform: translate(8.7rem, 0);
 }
 
@@ -176,15 +176,15 @@ button:active .circle .icon.arrow {
 button:active .circle {
   transform: scale(0.9);
   transition: all 0.3s;
-  box-shadow: 0 0 5px 0.5px white;
+  box-shadow: 0 0 5px 0.5px var(--color-text2);
 }
 
 button:hover .button-text {
-  color: #fff;
+  color: var(--color-text2);
 }
 
 button:active .button-text {
-  color: rgba(255, 255, 255, 0.459);
+  color: var(--color-second);
 }
 
 /* En móviles ocultar flechas */
@@ -204,10 +204,10 @@ button:active .button-text {
   margin: 0 15px;
   width: 280px;
   border-radius: 20px;
-  background: var(--color-card-bg);
+  background: var(--color-main2);
   padding: 5px;
   overflow: hidden;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 20px 0px;
+  box-shadow:var(--color-main2) 0px 7px 20px 0px;
   transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   opacity: 0;
   transform: translateY(50px);
@@ -223,7 +223,7 @@ button:active .button-text {
   border-radius: 15px;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(45deg, var(--color-primary) 0%, var(--color-highlight) 100%);
+  background: linear-gradient(45deg, var(--color-main2) 0%, var(--color-title) 100%);
   position: relative;
 }
 
@@ -231,10 +231,10 @@ button:active .button-text {
   border-bottom-right-radius: 10px;
   height: 80px;
   width: 250px;
-  background: var(--color-card-bg);
+  background: var(--color-main2);
   position: relative;
   transform: skew(-40deg);
-  box-shadow: -10px -10px 0 0 var(--color-card-bg);
+  box-shadow: -10px -10px 0 0 var(--color-main2);
 }
 
 .card .top-section .border::before {
@@ -244,9 +244,9 @@ button:active .button-text {
   height: 15px;
   top: 0;
   right: -15px;
-  background: rgba(255, 255, 255, 0);
+  background: var(--color-main2);
   border-top-left-radius: 10px;
-  box-shadow: -5px -5px 0 2px var(--color-card-bg);
+  box-shadow: -5px -5px 0 2px var(--color-main2);
 }
 
 .card .top-section::before {
@@ -254,11 +254,11 @@ button:active .button-text {
   position: absolute;
   top: 30px;
   left: 0;
-  background: rgba(255, 255, 255, 0);
+  background: var(--color-main2);
   height: 15px;
   width: 15px;
   border-top-left-radius: 15px;
-  box-shadow: -5px -5px 0 2px var(--color-card-bg);
+  box-shadow: -5px -5px 0 2px var(--color-main2);
 }
 
 .card .top-section .icons {
@@ -281,12 +281,12 @@ button:active .button-text {
 
 .card .top-section .icons .view-icon .svg {
   height: 100%;
-  fill: var(--color-card-bg);
+  fill: var(--color-main2);
   transition: fill 0.3s ease;
 }
 
 .card .top-section .icons .view-icon .svg:hover {
-  fill: var(--color-text-primary);
+  fill: var(--color-title);
 }
 
 .card .top-section .course-image {
@@ -322,7 +322,7 @@ button:active .button-text {
   display: block;
   font-size: 17px;
   font-weight: bolder;
-  color: var(--color-text-primary);
+  color: var(--color-text2);
   text-align: center;
   letter-spacing: 2px;
 }
@@ -337,7 +337,7 @@ button:active .button-text {
   flex: 30%;
   text-align: center;
   padding: 5px;
-  color: var(--color-text-secondary);
+  color: var(--color-second);
 }
 
 .card .bottom-section .row .item .big-text {
@@ -386,7 +386,7 @@ button:active .button-text {
 
 .arrow-top,
 .arrow-bottom {
-  background-color: #666;
+  background-color: var(--color-main2);
   height: 4px;
   position: absolute;
   top: 50%;
@@ -395,7 +395,7 @@ button:active .button-text {
 
 .arrow-top:after,
 .arrow-bottom:after {
-  background-color: #fff;
+  background-color: var(--color-title);
   content: "";
   height: 100%;
   position: absolute;

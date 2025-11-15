@@ -5,8 +5,8 @@
   left: 0;
   width: var(--sidebar-desktop);
   height: 500vh;
-  background-color: var(--color-bg-sidebar);
-  color: var(--color-text-primary);
+  background-color: var(--color-main);
+  color: var(--color-text2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +32,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto 15px auto;
-  border: 3px solid var(--color-text-primary);
+  border: 3px solid var(--color-text2);
 }
 
 .profile-pic img {
@@ -44,27 +44,27 @@
 .name {
   font-size: 19px;
   font-weight: bold;
-  color: var(--color-text-primary);
+  color: var(--color-text2);
   margin: 5px 0;
 }
 
 .role {
   font-size: 15px;
   font-weight: 600;
-  color: var(--color-highlight);
+  color: var(--color-title);
   margin: 5px 0;
 }
 
 .focus {
   font-size: 13px;
   font-weight: 400;
-  color: var(--color-text-secondary);
+  color: var(--color-second);
   margin-bottom: 18px;
 }
 
 .contact-info {
   font-size: 13px;
-  color: var(--color-text-secondary);
+  color: var(--color-second);
   margin-bottom: 22px;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .contact-info i {
-  color: var(--color-highlight);
+  color: var(--color-title);
   font-size: 14px;
 }
 
@@ -111,8 +111,8 @@
 /* === ESTILOS CELULAR (Navbar) === */
 .mobile-header {
   width: 100%;
-  background: var(--color-bg-sidebar);
-  color: var(--color-text-primary);
+  background: var(--color-main);
+  color: var(--color-text2);
   position: fixed;
   top: 0;
   left: 0;
@@ -132,19 +132,19 @@
 .logo {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--color-text-primary);
+  color: var(--color-text2);
 }
 
 .menu-btn {
   font-size: 1.8rem;
   background: none;
   border: none;
-  color: var(--color-text-primary);
+  color: var(--color-text2);
   cursor: pointer;
 }
 
 .mobile-menu {
-  background: var(--color-bg-sidebar);
+  background: var(--color-main);
   padding: 15px 20px;
   border-top: 1px solid rgba(255,255,255,0.2);
 }
@@ -160,7 +160,7 @@
 }
 
 .mobile-menu a {
-  color: var(--color-text-primary);
+  color: var(--color-text2);
   text-decoration: none;
   font-size: 1.1rem;
 }

@@ -8,7 +8,7 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-color: var(--color-bg-sidebar);
+  background-color: var(--color-main);
   font-family: 'Anton', sans-serif;
 }
 
@@ -32,12 +32,12 @@
   width: calc(var(--i) * 9vmin);
   height: calc(var(--i) * 5vmin);
   border-radius: 50%;
-  border: 0.4vmin solid var(--color-text-secondary);
+  border: 0.4vmin solid var(--color-title);
   transform-style: preserve-3d;
   transform: rotateX(70deg) translateZ(50px);
   animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
-  box-shadow: 0px 0px 8px var(--color-highlight),
-    inset 0px 0px 8px var(--color-highlight);
+  box-shadow: 0px 0px 8px var(--color-title),
+    inset 0px 0px 8px var(--color-title);
   opacity: 0.3;
 }
 
@@ -67,7 +67,7 @@
 }
 
 .intro-text {
-  color: #ffffff;
+  color: #f0f0f0;
   font-size: 4rem;
   font-weight: 800;
   line-height: 1.2;
@@ -82,7 +82,7 @@
 
 /* ✨ Palabra dinámica */
 .highlight {
-  background: var(--color-highlight);
+  background: var(--color-title);
   background-size: 200% auto;
   background-clip: text;
   -webkit-background-clip: text;
@@ -127,7 +127,7 @@
 .scroll-arrow {
   width: 30px;
   height: 30px;
-  border: 3px solid var(--color-bg-about);
+  border: 3px solid var(--color-main2);
   border-top: none;
   border-left: none;
   transform: rotate(45deg);
@@ -183,12 +183,12 @@
   width: calc(var(--i) * 5vmin);
   height: calc(var(--i) * 6vmin);
   border-radius: 50%;
-  border: 0.4vmin solid var(--color-text-secondary);
+  border: 0.4vmin solid var(--color-title);
   transform-style: preserve-3d;
   transform: rotateX(70deg) translateZ(50px);
   animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
-  box-shadow: 0px 0px 8px var(--color-highlight),
-    inset 0px 0px 8px var(--color-highlight);
+  box-shadow: 0px 0px 8px var(--color-title),
+    inset 0px 0px 8px var(--color-title);
   opacity: 0.3;
 }
 }
