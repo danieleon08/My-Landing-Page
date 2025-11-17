@@ -1,6 +1,6 @@
 .footer {
-  background: #06050e;
-  color: #ddd;
+  background: var(--color-main);
+  color: var(--color-text2);
   padding: 40px 20px 20px 20px;
   margin-top: 0px;
 }
@@ -8,10 +8,10 @@
 
 /* Línea inferior */
 .footer-bottom {
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--color-tech);
   text-align: center;
   padding-top: 15px;
   margin-top: 20px;
   font-size: 13px;
-  color: #777;
+  color: var(--color-text2);
 }

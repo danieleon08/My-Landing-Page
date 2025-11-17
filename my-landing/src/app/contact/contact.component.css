@@ -1,13 +1,13 @@
 /* 8. CONTACTO */
 .contact-section {
-  background: var(--dark-bg);
+  background: var(--color-main);
   padding: 80px 20px;
 }
 
 .section-title2 {
   font-size: 2.5rem;
   font-weight: 900;
-  color: #ffffff;
+  color: var(--color-title);
   margin-bottom: 50px;
   text-transform: uppercase;
   text-align: center;
@@ -25,13 +25,13 @@
 }
 
 .contact-info h3 {
-  color: #03dac6;
+  color: var(--color-second);
   font-size: 2rem;
   margin-bottom: 20px;
 }
 
 .contact-info p {
-  color: #cfcfcf;
+  color: var(--color-text2);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 40px;
@@ -41,24 +41,24 @@
 .contact-method {
   display: flex;
   align-items: center;
-  color: #ffffff;
+  color: var(--color-text2);
   margin-left: 30px
 }
 
 .contact-method i {
   font-size: 1.5rem;
-  color: #03dac6;
+  color: var(--color-second);
   margin-right: 20px;
   min-width: 30px;
 }
 
 .contact-method h4 {
-  color: #ffffff;
+  color: var(--color-second);
   margin-bottom: 5px;
 }
 
 .contact-method p {
-  color: #cfcfcf;
+  color: var(--color-text2);
   margin: 0;
 }
 
@@ -74,9 +74,9 @@
   justify-content: center;
   width: 50px;
   height: 50px;
-  background: #244C54;
+  background: var(--color-main);
   border-radius: 50%;
-  color: #ffffff;
+  color: var(--color-text2);
   text-decoration: none;
   font-size: 1.5rem;
   transition: all 0.3s ease;
@@ -84,17 +84,18 @@
 }
 
 .social-link:hover {
-  background: #03dac6;
+  background: var(--color-second);
   transform: translateY(-5px) scale(1.1);
-  box-shadow: 0px 10px 25px rgba(3, 218, 198, 0.4);
+  box-shadow: 0px 10px 25px var(--color-border);
+  color: var(--color-main);
 }
 
 .contact-form {
-  background: rgba(255,255,255,0.05);
+  background: var(--color-tech);
   padding: 40px;
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255,255,255,0.1);
+  border: 1px solid var(--color-main2);
   margin-top: 40px;
 }
 
@@ -107,10 +108,10 @@
 .form-group textarea {
   width: 100%;
   padding:15px 20px;
-  background: rgba(255,255,255,0.1);
+  background: var(--color-main2);
   border: 2px solid transparent;
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--color-text2);
   font-size: 1rem;
   transition: all 0.3s ease;
 }
@@ -118,23 +119,23 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #03dac6;
-  background: rgba(255,255,255,0.15);
-  box-shadow: 0px 0px 20px rgba(3, 218, 198, 0.2);
+  border-color: var(--color-second);
+  background: var(--color-tech);
+  box-shadow: 0px 0px 20px var(--color-main);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255,255,255,0.7);
+  color: var(--color-text2);
 }
 
 .btn-submit {
   width: 100%;
   padding: 15px;
-  background: linear-gradient(135deg, #244C54 0%, #03dac6 100%);
+  background: linear-gradient(135deg , var(--color-title) 0%, var(--color-border) 100%);
   border: none;
   border-radius: 10px;
-  color: #ffffff;
+  color: var(--color-main);
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -143,8 +144,8 @@
 
 .btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0px 10px 25px rgba(3, 218, 198, 0.4);
-}
+    box-shadow: 0px 10px 25px var(--color-title);
+  }
 
 .btn-submit i {
   margin-right: 10px;
@@ -152,10 +153,10 @@
 
 /* FOOTER */
 .footer {
-  background: #000;
+  background: var(--color-main);
   padding: 30px 20px;
   text-align: center;
-  color: #cfcfcf;
+  color: var(--color-text2);
   font-size: 0.9rem;
 }
 
