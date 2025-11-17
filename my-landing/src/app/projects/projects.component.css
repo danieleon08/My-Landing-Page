@@ -285,3 +285,10 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }
+
+@media (max-width: 768px) {
+    .section-title2 {
+      font-size: 1.8rem;
+    }
+
+}

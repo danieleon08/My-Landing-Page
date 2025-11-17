@@ -191,6 +191,9 @@
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+   .section-title2 {
+    font-size: 1.6rem;
+  }
   .timeline::before {
     left: 20px;
   }
@@ -226,3 +229,36 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 }
+
+
+@media (max-width: 380px) {
+
+  .section-title2 {
+   font-size: 1.4rem;
+  }
+
+
+  .tech-icons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* ⭐ 2 columnas siempre */
+    gap: 20px;
+    justify-items: center; /* ⭐ Centra cada tarjetica */
+    align-items: center;   /* ⭐ Mantiene alineado verticalmente */
+    width: 100%;
+  }
+
+  .tech-icon {
+    width: 100px;     /* tarjeta más pequeña */
+    padding: 15px;
+    text-align: center; /* asegura centrado interno */
+  }
+
+  .tech-icon i {
+    font-size: 2.2rem; /* ícono más pequeño */
+  }
+
+  .tech-icon span {
+    font-size: 0.8rem; /* texto ajustado */
+  }
+}
+
