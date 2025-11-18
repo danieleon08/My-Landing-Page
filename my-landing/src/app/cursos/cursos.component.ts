@@ -21,13 +21,20 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   visibleCards = 3; // 🌟 número de tarjetas visibles (depende del ancho de pantalla)
   slides: any[] = []; // includes clones for infinite looping
   private carouselIntervalId: any;
+  currentTranslate = 0; // px translate for the track
 
   // Variables para swipe
   private touchStartX = 0;
   private touchEndX = 0;
   private isTransitioning = false;
+  private isDragging = false;
+  private dragStartX = 0;
+  private dragDeltaX = 0;
+  private startTranslatePx = 0;
+  private autoplayWasRunning = false;
 
   @ViewChild('track', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
+  @ViewChild('carousel', { static: false }) carouselRef!: ElementRef<HTMLDivElement>;
 
   ngOnInit(): void {
     this.updateVisibleCards(); // ajustar al iniciar (this will setup slides)
@@ -40,7 +47,8 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngAfterViewInit(): void {
     // ensure track has no jumping animation at setup
-    this.disableTransitionTemporarily();
+    // if slides are already setup, set px translate
+    setTimeout(() => this.updateTranslate(false), 0);
   }
 
   ngOnDestroy(): void {
@@ -54,32 +62,104 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.isTransitioning) return;
     this.isTransitioning = true;
     this.currentIndex++;
+    this.updateTranslate(true);
   }
 
   prevSlide(): void {
     if (this.isTransitioning) return;
     this.isTransitioning = true;
     this.currentIndex--;
+    this.updateTranslate(true);
   }
 
   // 📱 Swipe en móviles
   onTouchStart(event: TouchEvent): void {
-    this.touchStartX = event.touches[0].clientX;
+    if (!this.isDragging) this.startDrag(event.touches[0].clientX);
   }
 
   onTouchMove(event: TouchEvent): void {
-    this.touchEndX = event.touches[0].clientX;
+    this.moveDrag(event.touches[0].clientX, event);
   }
 
   onTouchEnd(): void {
-    if (this.touchStartX - this.touchEndX > 50) {
-      this.nextSlide(); // swipe left → siguiente
+    this.finishDrag();
+  }
+  
+  onPointerDown(event: PointerEvent): void {
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    if (!this.isDragging) this.startDrag(event.clientX);
+  }
+  
+  onPointerMove(event: PointerEvent): void {
+    if (!this.isDragging) return;
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    this.moveDrag(event.clientX, event as any);
+  }
+  
+  onPointerUp(event: PointerEvent): void {
+    if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+    this.finishDrag();
+  }
+
+  private startDrag(clientX: number) {
+    if (!this.carouselRef) return;
+    this.isDragging = true;
+    this.touchStartX = clientX;
+    this.dragStartX = clientX;
+    this.startTranslatePx = -this.currentIndex * this.getSlideWidthPx();
+    if (this.trackRef && this.trackRef.nativeElement) {
+      this.trackRef.nativeElement.style.transition = 'none';
     }
-    if (this.touchEndX - this.touchStartX > 50) {
-      this.prevSlide(); // swipe right → anterior
+    if (this.carouselIntervalId) {
+      clearInterval(this.carouselIntervalId);
+      this.autoplayWasRunning = true;
+      this.carouselIntervalId = null;
     }
+  }
+
+  private moveDrag(clientX: number, event?: Event) {
+    if (!this.isDragging) return;
+    this.dragDeltaX = clientX - this.dragStartX;
+    if (Math.abs(this.dragDeltaX) > 10 && event && (event as TouchEvent).preventDefault) {
+      (event as TouchEvent).preventDefault();
+    }
+    const translate = this.startTranslatePx + this.dragDeltaX;
+    if (this.trackRef && this.trackRef.nativeElement) {
+      this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
+    }
+  }
+
+  private finishDrag() {
+    if (!this.isDragging) return;
+    this.isDragging = false;
+
+    const delta = this.dragDeltaX;
+    const threshold = this.getSlideWidthPx() / 4; // swipe at least 25% of slide width
+
+    if (this.trackRef && this.trackRef.nativeElement) {
+      // restore transition so next movement is animated
+      this.trackRef.nativeElement.style.transition = '';
+    }
+
+    if (delta < -threshold) { // swipe left → next
+      this.nextSlide();
+    } else if (delta > threshold) {
+      this.prevSlide();
+    } else {
+      this.updateTranslate(true);
+    }
+
     this.touchStartX = 0;
     this.touchEndX = 0;
+    this.dragDeltaX = 0;
+
+    // resume autoplay if it was running
+    if (this.autoplayWasRunning) {
+      this.carouselIntervalId = setInterval(() => {
+        this.nextSlide();
+      }, 4000);
+      this.autoplayWasRunning = false;
+    }
   }
 
   // 📏 Ajustar visibleCards según tamaño de pantalla
@@ -94,6 +174,23 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     // recreate slides (with clones) when visible count changes
     this.setupSlides();
+  }
+
+  private getSlideWidthPx(): number {
+    // Prefer precise slide width from the first card to account for margins and responsive CSS
+    if (this.trackRef && this.trackRef.nativeElement) {
+      const first = this.trackRef.nativeElement.querySelector('.card') as HTMLElement | null;
+      if (first) {
+        const style = window.getComputedStyle(first);
+        const marginLeft = parseFloat(style.marginLeft || '0');
+        const marginRight = parseFloat(style.marginRight || '0');
+        return first.offsetWidth + marginLeft + marginRight;
+      }
+    }
+
+    if (!this.carouselRef) return 0;
+    const carouselWidth = this.carouselRef.nativeElement.clientWidth;
+    return carouselWidth / this.visibleCards;
   }
 
   private setupSlides(): void {
@@ -116,9 +213,8 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
 
     // start at first real slide (offset by head clones)
     this.currentIndex = v;
-
     // ensure no transition jump on setup
-    this.disableTransitionTemporarily();
+    this.updateTranslate(false);
   }
 
   onTransitionEnd(): void {
@@ -128,13 +224,13 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.currentIndex >= v + c) {
       // jump back by removing c
       this.currentIndex -= c;
-      this.disableTransitionTemporarily();
+      this.updateTranslate(false);
     }
 
     // if moved into the left clones
     if (this.currentIndex < v) {
       this.currentIndex += c;
-      this.disableTransitionTemporarily();
+      this.updateTranslate(false);
     }
 
     // allow next navigation
@@ -152,5 +248,23 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     setTimeout(() => {
       track.style.transition = '';
     }, 50);
+  }
+
+  private updateTranslate(animate = true): void {
+    if (!this.trackRef || !this.carouselRef) return;
+    const track = this.trackRef.nativeElement;
+    const px = -this.currentIndex * this.getSlideWidthPx();
+    if (!animate) {
+      track.style.transition = 'none';
+    } else {
+      track.style.transition = '';
+    }
+    track.style.transform = `translateX(${px}px)`;
+    this.currentTranslate = px;
+    // force reflow then restore transition if we disabled it earlier
+    if (!animate) {
+      void track.offsetWidth;
+      setTimeout(() => track.style.transition = '', 20);
+    }
   }
 }

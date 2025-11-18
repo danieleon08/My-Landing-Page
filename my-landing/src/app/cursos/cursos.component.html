@@ -12,16 +12,21 @@
 
   <div 
     class="carousel" 
+    #carousel
     (touchstart)="onTouchStart($event)" 
     (touchmove)="onTouchMove($event)" 
-    (touchend)="onTouchEnd()">    
+    (touchend)="onTouchEnd()" 
+    (pointerdown)="onPointerDown($event)"
+    (pointermove)="onPointerMove($event)"
+    (pointerup)="onPointerUp($event)"
+    (touchcancel)="onTouchEnd()">    
 
     <!-- Track -->
     <div 
       class="carousel-track" 
       #track
       (transitionend)="onTransitionEnd()"
-      [style.transform]="'translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'"> 
+      [style.transform]="'translateX(' + currentTranslate + 'px)'"> 
       
       <div class="card" *ngFor="let course of slides">
         <div class="top-section">
