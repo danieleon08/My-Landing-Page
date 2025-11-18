@@ -286,7 +286,7 @@ button:active .button-text {
 }
 
 .card .top-section .icons .view-icon .svg:hover {
-  fill: var(--color-title);
+  fill: var(--color-text2);
 }
 
 .card .top-section .course-image {
@@ -395,7 +395,7 @@ button:active .button-text {
 
 .arrow-top:after,
 .arrow-bottom:after {
-  background-color: var(--color-title);
+  background-color: var(--color-text2);
   content: "";
   height: 100%;
   position: absolute;

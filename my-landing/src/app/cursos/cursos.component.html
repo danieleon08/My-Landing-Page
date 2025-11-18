@@ -19,9 +19,11 @@
     <!-- Track -->
     <div 
       class="carousel-track" 
-      [style.transform]="'translateX(-' + currentIndex * (100 / visibleCards) + '%)'">
+      #track
+      (transitionend)="onTransitionEnd()"
+      [style.transform]="'translateX(-' + (currentIndex * (100 / visibleCards)) + '%)'"> 
       
-      <div class="card" *ngFor="let course of courses">
+      <div class="card" *ngFor="let course of slides">
         <div class="top-section">
           <div class="border"></div>
           <div class="icons">
