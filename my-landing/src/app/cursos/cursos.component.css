@@ -25,6 +25,8 @@
   margin-right: 70px ;
   gap: 5px;
   touch-action: pan-y; /* allow vertical page scroll while capturing horizontal swipes */
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .carousel-track {

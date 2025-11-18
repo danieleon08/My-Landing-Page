@@ -32,6 +32,8 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   private dragDeltaX = 0;
   private startTranslatePx = 0;
   private autoplayWasRunning = false;
+  supportsPointer = typeof window !== 'undefined' && 'PointerEvent' in window;
+  private pendingRaf: number | null = null;
 
   @ViewChild('track', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
   @ViewChild('carousel', { static: false }) carouselRef!: ElementRef<HTMLDivElement>;
@@ -43,6 +45,8 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     this.carouselIntervalId = setInterval(() => {
       this.nextSlide();
     }, 4000);
+    // prefer pointer events if present
+    this.supportsPointer = typeof window !== 'undefined' && 'PointerEvent' in window;
   }
 
   ngAfterViewInit(): void {
@@ -74,20 +78,29 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // 📱 Swipe en móviles
   onTouchStart(event: TouchEvent): void {
+    if (this.supportsPointer) return; // prefer pointer handlers when supported
     if (!this.isDragging) this.startDrag(event.touches[0].clientX);
   }
 
   onTouchMove(event: TouchEvent): void {
+    if (this.supportsPointer) return;
     this.moveDrag(event.touches[0].clientX, event);
   }
 
   onTouchEnd(): void {
+    if (this.supportsPointer) return;
     this.finishDrag();
   }
   
   onPointerDown(event: PointerEvent): void {
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
     if (!this.isDragging) this.startDrag(event.clientX);
+    // capture pointer on the carousel to ensure move/up still arrive when pointer leaves
+    try {
+      this.carouselRef?.nativeElement?.setPointerCapture(event.pointerId);
+    } catch (e) {
+      // ignore if not supported or element removed
+    }
   }
   
   onPointerMove(event: PointerEvent): void {
@@ -99,6 +112,11 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   onPointerUp(event: PointerEvent): void {
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
     this.finishDrag();
+    try {
+      this.carouselRef?.nativeElement?.releasePointerCapture(event.pointerId);
+    } catch (e) {
+      // ignore
+    }
   }
 
   private startDrag(clientX: number) {
@@ -120,12 +138,15 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   private moveDrag(clientX: number, event?: Event) {
     if (!this.isDragging) return;
     this.dragDeltaX = clientX - this.dragStartX;
-    if (Math.abs(this.dragDeltaX) > 10 && event && (event as TouchEvent).preventDefault) {
-      (event as TouchEvent).preventDefault();
-    }
+    // rely on CSS `touch-action` to avoid vertical scroll; don't call preventDefault here
+    // because many browsers make touch listeners passive which causes preventDefault to fail
     const translate = this.startTranslatePx + this.dragDeltaX;
     if (this.trackRef && this.trackRef.nativeElement) {
-      this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
+      if (this.pendingRaf) cancelAnimationFrame(this.pendingRaf);
+      this.pendingRaf = requestAnimationFrame(() => {
+        this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
+        this.pendingRaf = null;
+      });
     }
   }
 
