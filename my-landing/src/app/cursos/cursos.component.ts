@@ -33,7 +33,6 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   private startTranslatePx = 0;
   private autoplayWasRunning = false;
   supportsPointer = typeof window !== 'undefined' && 'PointerEvent' in window;
-  private pendingRaf: number | null = null;
 
   @ViewChild('track', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
   @ViewChild('carousel', { static: false }) carouselRef!: ElementRef<HTMLDivElement>;
@@ -142,11 +141,7 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     // because many browsers make touch listeners passive which causes preventDefault to fail
     const translate = this.startTranslatePx + this.dragDeltaX;
     if (this.trackRef && this.trackRef.nativeElement) {
-      if (this.pendingRaf) cancelAnimationFrame(this.pendingRaf);
-      this.pendingRaf = requestAnimationFrame(() => {
-        this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
-        this.pendingRaf = null;
-      });
+      this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
     }
   }
 
