@@ -24,6 +24,38 @@
   height: auto;
 }
 
+/* Animación de aparición elegante para el logo */
+.logo .lion {
+  transform-origin: center;
+  will-change: transform, opacity, filter;
+  animation: headerLogoIn 700ms cubic-bezier(0.2, 0.9, 0.2, 1) both;
+}
+
+@keyframes headerLogoIn {
+  0% {
+    transform: translateY(-14px) rotate(-8deg) scale(0.92);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  60% {
+    transform: translateY(6px) rotate(6deg) scale(1.04);
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+/* Pequeño efecto al pasar el mouse/tocar */
+.logo .lion:hover,
+.logo .lion:active {
+  transform: translateY(-2px) scale(1.03);
+  transition: transform 240ms ease;
+}
+
 .header-top .nav-links {
   display: flex;
   gap: 100px;
@@ -34,6 +66,48 @@
   text-decoration: none;
   font-weight: 200;
   transition: color 0.3s;
+}
+
+/* Entrada sutil (desvanecido) para los enlaces del header */
+.nav-links a {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(-4px);
+  will-change: opacity, transform;
+  animation: navLinkFadeIn 360ms ease forwards;
+}
+.nav-links a:nth-child(1) { animation-delay: 0s; }
+.nav-links a:nth-child(2) { animation-delay: 0.06s; }
+.nav-links a:nth-child(3) { animation-delay: 0.12s; }
+.nav-links a:nth-child(4) { animation-delay: 0.18s; }
+.nav-links a:nth-child(5) { animation-delay: 0.24s; }
+
+@keyframes navLinkFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* interacción: solo color y leve elevación mínima */
+.nav-links a:hover,
+.nav-links a:active {
+  transform: translateY(-1px);
+  transition: transform 200ms ease, color 180ms ease;
+}
+
+/* Respeta preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
 
 .nav-links{
