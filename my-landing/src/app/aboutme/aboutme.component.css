@@ -94,10 +94,11 @@
 .achievements-track {
   display: flex;
   gap: 20px;
-  width: 200px; /* su ancho será el total de todos los items */
+  width: max-content; /* size to content so horizontal scroll animation can move */
   flex-wrap: nowrap;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
+  will-change: transform;
 }
 
 .achievements-track:hover {

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef, AfterViewInit, Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-cursos',
@@ -33,9 +33,15 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   private startTranslatePx = 0;
   private autoplayWasRunning = false;
   supportsPointer = typeof window !== 'undefined' && 'PointerEvent' in window;
+  private rafId: number | null = null;
+  private pendingTranslate = 0;
+  private globalMoveUnlisten: (() => void) | null = null;
+  private globalUpUnlisten: (() => void) | null = null;
+  private globalCancelUnlisten: (() => void) | null = null;
 
   @ViewChild('track', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
   @ViewChild('carousel', { static: false }) carouselRef!: ElementRef<HTMLDivElement>;
+  constructor(private renderer: Renderer2) {}
 
   ngOnInit(): void {
     this.updateVisibleCards(); // ajustar al iniciar (this will setup slides)
@@ -100,6 +106,16 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     } catch (e) {
       // ignore if not supported or element removed
     }
+    // attach global listeners so we don't lose move/up when pointer leaves the element
+    if (!this.globalMoveUnlisten) {
+      this.globalMoveUnlisten = this.renderer.listen('window', 'pointermove', (e: PointerEvent) => this.onPointerMove(e));
+    }
+    if (!this.globalUpUnlisten) {
+      this.globalUpUnlisten = this.renderer.listen('window', 'pointerup', (e: PointerEvent) => this.onPointerUp(e));
+    }
+    if (!this.globalCancelUnlisten) {
+      this.globalCancelUnlisten = this.renderer.listen('window', 'pointercancel', (e: PointerEvent) => this.onPointerUp(e));
+    }
   }
   
   onPointerMove(event: PointerEvent): void {
@@ -116,6 +132,19 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     } catch (e) {
       // ignore
     }
+    // remove global listeners
+    if (this.globalMoveUnlisten) {
+      this.globalMoveUnlisten();
+      this.globalMoveUnlisten = null;
+    }
+    if (this.globalUpUnlisten) {
+      this.globalUpUnlisten();
+      this.globalUpUnlisten = null;
+    }
+    if (this.globalCancelUnlisten) {
+      this.globalCancelUnlisten();
+      this.globalCancelUnlisten = null;
+    }
   }
 
   private startDrag(clientX: number) {
@@ -123,7 +152,8 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     this.isDragging = true;
     this.touchStartX = clientX;
     this.dragStartX = clientX;
-    this.startTranslatePx = -this.currentIndex * this.getSlideWidthPx();
+    // use the current translate as starting point (keeps consistent with currentTransform)
+    this.startTranslatePx = this.currentTranslate;
     if (this.trackRef && this.trackRef.nativeElement) {
       this.trackRef.nativeElement.style.transition = 'none';
     }
@@ -140,8 +170,15 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     // rely on CSS `touch-action` to avoid vertical scroll; don't call preventDefault here
     // because many browsers make touch listeners passive which causes preventDefault to fail
     const translate = this.startTranslatePx + this.dragDeltaX;
-    if (this.trackRef && this.trackRef.nativeElement) {
-      this.trackRef.nativeElement.style.transform = `translateX(${translate}px)`;
+    this.pendingTranslate = translate;
+    if (this.rafId == null) {
+      this.rafId = requestAnimationFrame(() => {
+        if (this.trackRef && this.trackRef.nativeElement) {
+          this.trackRef.nativeElement.style.transform = `translateX(${this.pendingTranslate}px)`;
+          this.currentTranslate = this.pendingTranslate;
+        }
+        this.rafId = null;
+      });
     }
   }
 
@@ -149,22 +186,30 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     if (!this.isDragging) return;
     this.isDragging = false;
 
-    const delta = this.dragDeltaX;
-    const threshold = this.getSlideWidthPx() / 4; // swipe at least 25% of slide width
+    // compute nearest slide index from currentTranslate so touch snapping works reliably
+    const slideW = this.getSlideWidthPx() || 1;
+    // ensure any pending RAF applied
+    if (this.rafId != null) {
+      cancelAnimationFrame(this.rafId);
+      this.rafId = null;
+    }
 
+    const translateNow = this.currentTranslate;
+    // index as a float (negative translate corresponds to positive index)
+    const indexFloat = -translateNow / slideW;
+    const nearest = Math.round(indexFloat);
+
+    // restore transition for animated snap
     if (this.trackRef && this.trackRef.nativeElement) {
-      // restore transition so next movement is animated
       this.trackRef.nativeElement.style.transition = '';
     }
 
-    if (delta < -threshold) { // swipe left → next
-      this.nextSlide();
-    } else if (delta > threshold) {
-      this.prevSlide();
-    } else {
-      this.updateTranslate(true);
-    }
+    // snap to nearest index (will trigger onTransitionEnd to handle clones)
+    this.currentIndex = nearest;
+    this.isTransitioning = true;
+    this.updateTranslate(true);
 
+    // reset drag deltas
     this.touchStartX = 0;
     this.touchEndX = 0;
     this.dragDeltaX = 0;
