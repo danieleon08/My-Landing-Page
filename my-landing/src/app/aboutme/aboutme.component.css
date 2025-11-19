@@ -74,7 +74,7 @@
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease, transform 1s ease;
-  margin-right: 50px;
+  margin-right: 0px;
 }
 
 .about-right.visible {
@@ -94,7 +94,7 @@
 .achievements-track {
   display: flex;
   gap: 20px;
-  width: max-content; /* su ancho será el total de todos los items */
+  width: 200px; /* su ancho será el total de todos los items */
   flex-wrap: nowrap;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -117,6 +117,13 @@
   border: 1px solid transparent;
   transition: box-shadow 0.4s ease, border 0.4s ease;
   flex: 0 0 auto; /* 🔥 importante */
+  width: 500px;
+}
+
+/* Cuando la app añade la clase `with-sidebar` al contenedor principal (ver AppComponent),
+   reducimos el ancho de las tarjetas para que respeten el espacio del header lateral */
+:host-context(.with-sidebar) .achievement-card {
+  width: 300px;
 }
 
 .achievement-card:hover {

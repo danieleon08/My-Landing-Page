@@ -1,6 +1,6 @@
-<div class="about-container" id="sobre-mi">
+<div #aboutContainer class="about-container" id="sobre-mi">
   <!-- IZQUIERDA: Texto -->
-  <div class="about-left">
+  <div #aboutLeft class="about-left">
     <h2 class="section-title">About Me</h2>
     <p class="about-text">
       Soy un desarrollador apasionado por la tecnología y la innovación.  
@@ -24,8 +24,8 @@
   </div>
 
   <!-- DERECHA: Carrusel vertical / horizontal responsive -->
-  <div class="about-right" [class.visible]="isVisible">
-    <div class="achievements-viewport">
+  <div #aboutRight class="about-right" [class.visible]="isVisible">
+    <div #achievementsViewport class="achievements-viewport">
       <div #achievementsTrack class="achievements-track">
         <div *ngFor="let logro of logrosDuplicados" class="achievement-card">
           <i [class]="logro.icon"></i>

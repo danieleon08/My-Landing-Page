@@ -20,7 +20,7 @@
 }
 
 .logo .lion {
-  width: 80px;
+  width: 100px;
   height: auto;
 }
 
@@ -37,12 +37,12 @@
 }
 
 .nav-links{
-  margin-right: 130px;
+  margin-right: 150px;
   font-size: 15px;
 }
 
 .logo{
-  margin-left: 100px;
+  margin-left: 140px;
 }
 
 .header-top .nav-links a:hover {
