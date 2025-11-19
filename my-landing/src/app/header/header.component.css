@@ -64,7 +64,7 @@
 
 .contact-info {
   font-size: 13px;
-  color: var(--color-second);
+  color: var(--color-text2);
   margin-bottom: 22px;
 }
 
@@ -145,7 +145,7 @@
 
 .contact-infomov {
   font-size: 13px;
-  color: var(--color-second);
+  color: var(--color-text2);
   margin-bottom: 22px;
   margin-left: 25px;
 }

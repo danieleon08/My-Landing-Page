@@ -340,7 +340,7 @@ button:active .button-text {
   flex: 30%;
   text-align: center;
   padding: 5px;
-  color: var(--color-second);
+  color: var(--color-border);
 }
 
 .card .bottom-section .row .item .big-text {
