@@ -2,7 +2,7 @@
 .tubelight-navbar {
   position: fixed;
   bottom: auto;
-  top: 7.5rem;
+  top: 2rem;
   left: 50%;
   transform: translateX(-50%) scaleX(1);
   transform-origin: center;
@@ -22,7 +22,7 @@
 /* Logo Styles */
 .logo-container {
   position: absolute;
-  top: 1rem;
+  top: 7.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 49;
@@ -37,7 +37,7 @@
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.3));
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .tubelight-navbar {
     top: 0;
     bottom: auto;
@@ -106,7 +106,7 @@
   display: inline-block;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
   .nav-text {
     display: inline;
   }
@@ -185,7 +185,7 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .d-md-inline {
     display: inline;
   }
@@ -199,7 +199,7 @@
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 770px) {
   .d-md-inline {
     display: none;
   }
