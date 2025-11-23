@@ -39,16 +39,25 @@ import { CommonModule } from '@angular/common';
 export class ProjectsComponent implements AfterViewInit {
   projects = [
     {
-      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg',
-      title: 'Sitio Web para Restaurante de Hamburguesas',
-      short: 'Gestión completa de productos y ventas',
-      description: 'Sistema completo de gestión empresarial con dashboard interactivo, reportes en tiempo real y control avanzado de stock. Incluye módulos de ventas, compras, proveedores y análisis predictivo.',
-      features: ['Angular 15', 'Spring Boot', 'PostgreSQL', 'Docker', 'JWT Auth', 'Charts.js'],
+      image: '/assets/images/porticoangular.png',
+      title: 'Sitio Web para Restaurante de Hamburguesas - Frontend',
+      short: 'Landing Page para restaurant de Hamburguesas',
+      description: 'Landing Page para restaurant de Hamburguesas con diseño moderno y responsive.',
+      features: ['Angular 15', 'Figma', 'HTML', 'CSS', 'JavaScript', 'Bootstrap'],
       repoUrl: 'https://github.com/Hamburguesas-El-Portico/portico_angular',
       demoUrl: '#'
     },
     {
-      image: 'https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg',
+      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg',
+      title: 'Sitio Web para Restaurante de Hamburguesas - Backend',
+      short: 'Gestion de productos, pedidos, clientes, domiciliarios y operadores',
+      description: 'Crud completo de productos, pedidos, clientes, domiciliarios y operadores con autenticación, seguridad, testing, ventas, reportes y dashboard interactivo.',
+      features: ['Spring Boot', 'Java', 'Aronium', 'PostgreSQL', 'Docker', 'JWT Auth', 'Charts.js'],
+      repoUrl: 'https://github.com/Hamburguesas-El-Portico/portico_spring',
+      demoUrl: '#'
+    },
+    {
+      image: '/assets/images/parkeasy.jpeg',
       title: 'App movil de Buscar Parqueaderos',
       short: 'Encuentra y reserva parqueaderos',
       description: 'Aplicación móvil híbrida que permite ubicar parqueaderos disponibles en tiempo real, realizar reservas y pagos digitales. Integra mapas interactivos y notificaciones push.',
@@ -84,7 +93,7 @@ export class ProjectsComponent implements AfterViewInit {
       demoUrl: '#'
     },
     {
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+      image: 'https://images.pexels.com/photos/163064/play-stone-network-networked-interactive-163064.jpeg',
       title: 'Implementación de Tecnicas de Aprendizaje de Maquina',
       short: 'Aprendizaje de Maquina',
       description: 'Seleccionar las librerías de trabajo en Python: tensorflow, keras o similares. Estas deben proveer implementaciones/funciones para las siguientes técnicas de aprendizaje automático: - Support Vector Machine (SVM) - Red neuronal multicapa - árbol de decisión ID3',
