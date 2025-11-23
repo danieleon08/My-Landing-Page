@@ -1,12 +1,23 @@
-<header class="header-top">
-  <div class="logo">
-    <img class="lion" src="assets/images/logoofi.png" alt="Logo">
+<div class="logo-container">
+  <img class="lion-logo" src="assets/images/logoofi.png" alt="Logo">
+</div>
+<div class="tubelight-navbar">
+  <div class="navbar-container">
+    <a *ngFor="let item of navItems" [href]="item.url" (click)="setActiveTab(item.name)" class="nav-item"
+      [class.active]="activeTab === item.name">
+
+      <span class="nav-text d-none d-md-inline">{{ item.name }}</span>
+      <span class="nav-icon d-md-none">
+        <i [class]="item.icon"></i>
+      </span>
+
+      <div *ngIf="activeTab === item.name" class="lamp-effect">
+        <div class="lamp-base">
+          <div class="lamp-light"></div>
+          <div class="lamp-glow-top"></div>
+          <div class="lamp-glow-bottom"></div>
+        </div>
+      </div>
+    </a>
   </div>
-  <nav class="nav-links">
-    <a href="">HOME</a>
-    <a href="#sobre-mi">ABOUT</a>
-    <a href="#cursos">COURSES</a>
-    <a href="#proyectos">PROJECTS</a>
-    <a href="#contacto">CONTACT</a>
-  </nav>
-</header>
+</div>
