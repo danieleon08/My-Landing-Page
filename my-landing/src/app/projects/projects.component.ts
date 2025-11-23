@@ -58,10 +58,10 @@ export class ProjectsComponent implements AfterViewInit {
     },
     {
       image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',
-      title: 'CMR y marketing digital para "Papelería Emalu"',
-      short: 'Tienda virtual completa',
-      description: 'Plataforma de comercio electrónico para papelería y miscelánea con carrito de compras, pasarela de pagos, gestión de inventario y panel administrativo completo.',
-      features: ['Next.js', 'Stripe', 'MongoDB', 'Cloudinary', 'Email Templates'],
+      title: 'Emprendimiento de venta de plataformas de streaming "LION VIEW"',
+      short: 'Venta de plataformas de streaming',
+      description: 'Plataforma de comercio electrónico para venta de plataformas de streaming con atención al cliente, gestión de inventario y panel administrativo completo.',
+      features: ['Excel', 'WhatsApp', 'Instagram', 'Marketing'],
       repoUrl: '#',
       demoUrl: '#'
     },
@@ -81,6 +81,15 @@ export class ProjectsComponent implements AfterViewInit {
       description: 'Proyecto académico de sistema distribuido para gestión de taxis utilizando ZeroMQ para comunicación entre agentes y algoritmos de optimización de rutas.',
       features: ['Python', 'ZeroMQ', 'Algoritmos IA', 'Sistemas Distribuidos'],
       repoUrl: 'https://github.com/danieleon08/Sistema-Distribuido-de-Taxis---ZeroMQ',
+      demoUrl: '#'
+    },
+    {
+      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg',
+      title: 'Implementación de Tecnicas de Aprendizaje de Maquina',
+      short: 'Aprendizaje de Maquina',
+      description: 'Seleccionar las librerías de trabajo en Python: tensorflow, keras o similares. Estas deben proveer implementaciones/funciones para las siguientes técnicas de aprendizaje automático: - Support Vector Machine (SVM) - Red neuronal multicapa - árbol de decisión ID3',
+      features: ['Python', 'TensorFlow', 'Keras', 'Algoritmos IA', 'Sistemas Distribuidos'],
+      repoUrl: 'https://github.com/danieleon08/Tecnicas-de-Aprendizaje-de-Maquina',
       demoUrl: '#'
     }
   ];
