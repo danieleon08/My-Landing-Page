@@ -51,8 +51,23 @@ export class HeaderTopComponent implements OnInit {
     }
   }
 
+  lastScrollTop = 0;
+  isHidden = false;
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    const st = window.pageYOffset || document.documentElement.scrollTop;
+
+    // Determine scroll direction
+    if (st > this.lastScrollTop && st > 100) {
+      // Scrolling Down
+      this.isHidden = true;
+    } else {
+      // Scrolling Up
+      this.isHidden = false;
+    }
+    this.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+
     const sections = this.navItems.map(item => {
       const id = item.url.replace('#', '');
       // Handle 'Home' which might be top of page or specific section
