@@ -28,7 +28,8 @@ export class HeaderTopComponent implements OnInit {
     this.isMobile = window.innerWidth < 768;
   }
 
-  setActiveTab(name: string) {
+  setActiveTab(name: string, event: Event) {
+    event.preventDefault();
     this.activeTab = name;
     const item = this.navItems.find(i => i.name === name);
     if (item) {

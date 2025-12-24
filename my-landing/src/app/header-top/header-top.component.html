@@ -3,7 +3,7 @@
 </div>
 <div class="tubelight-navbar" [class.hidden-nav]="isHidden">
   <div class="navbar-container">
-    <a *ngFor="let item of navItems" [href]="item.url" (click)="setActiveTab(item.name)" class="nav-item"
+    <a *ngFor="let item of navItems" [href]="item.url" (click)="setActiveTab(item.name, $event)" class="nav-item"
       [class.active]="activeTab === item.name">
 
       <span class="nav-text d-none d-md-inline">{{ item.name }}</span>

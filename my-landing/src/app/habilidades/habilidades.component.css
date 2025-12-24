@@ -3,7 +3,8 @@
   min-height: 1000px;
   width: 100%;
   position: relative;
-  background-color: var(--color-main); /* fondo base claro */
+  background-color: var(--color-main);
+  /* fondo base claro */
   overflow: hidden;
 }
 
@@ -17,16 +18,12 @@
   background-image: linear-gradient(to right, var(--color-main) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-main2) 1px, transparent 1px);
   background-size: 20px 30px;
-  -webkit-mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    var(--color-main) 80%,
-    transparent 100%
-  );
-  mask-image: radial-gradient(
-    ellipse 70% 60% at 50% 0%,
-    var(--color-main) 80%,
-    transparent 100%
-  );
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 0%,
+      var(--color-main) 80%,
+      transparent 100%);
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 0%,
+      var(--color-main) 80%,
+      transparent 100%);
 }
 
 /* === CONTENIDO INTERIOR === */
@@ -65,9 +62,12 @@
 /* === TARJETA INDIVIDUAL === */
 .card {
   position: relative;
-  width: 100%; /* fill the grid cell */
-  height: var(--card-height, auto); /* unified height set from TS when needed */
-  background-color: var(--color-main); /* ✅ Fondo blanco de las tarjetas */
+  width: 100%;
+  /* fill the grid cell */
+  height: var(--card-height, auto);
+  /* unified height set from TS when needed */
+  background-color: var(--color-main);
+  /* ✅ Fondo blanco de las tarjetas */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -77,7 +77,8 @@
   border-radius: 12px;
   cursor: pointer;
   text-align: center;
-  overflow: visible; /* allow content to expand if needed */
+  overflow: visible;
+  /* allow content to expand if needed */
   box-sizing: border-box;
   opacity: 0;
   transform: translateY(50px) scale(0.95);
@@ -186,6 +187,7 @@
 
   .card {
     width: 90%;
-    height: auto; /* on mobile allow auto height */
+    height: auto;
+    /* on mobile allow auto height */
   }
 }
