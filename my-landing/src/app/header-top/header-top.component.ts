@@ -8,14 +8,14 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class HeaderTopComponent implements OnInit {
 
   navItems = [
-    { name: 'Home', url: '#', icon: 'fas fa-home' },
-    { name: 'About', url: '#sobre-mi', icon: 'fas fa-user' },
-    { name: 'Courses', url: '#cursos', icon: 'fas fa-graduation-cap' },
-    { name: 'Projects', url: '#proyectos', icon: 'fas fa-briefcase' },
-    { name: 'Contact', url: '#contacto', icon: 'fas fa-envelope' }
+    { name: 'Inicio', url: '#', icon: 'fas fa-home' },
+    { name: 'Sobre mi', url: '#sobre-mi', icon: 'fas fa-user' },
+    { name: 'Cursos', url: '#cursos', icon: 'fas fa-graduation-cap' },
+    { name: 'Proyectos', url: '#proyectos', icon: 'fas fa-briefcase' },
+    { name: 'Contacto', url: '#contacto', icon: 'fas fa-envelope' }
   ];
 
-  activeTab = 'Home';
+  activeTab = 'Inicio';
   isMobile = false;
 
   ngOnInit() {

@@ -39,7 +39,7 @@ import { CommonModule } from '@angular/common';
 export class ProjectsComponent implements AfterViewInit {
   projects = [
     {
-      image: '/assets/images/porticoangular.png',
+      image: '/assets/images/gif_landing.gif',
       title: 'Sitio Web para Restaurante de Hamburguesas - Frontend',
       short: 'Landing Page para restaurant de Hamburguesas',
       description: 'Landing Page para restaurant de Hamburguesas con diseño moderno y responsive.',
@@ -48,7 +48,7 @@ export class ProjectsComponent implements AfterViewInit {
       demoUrl: '#'
     },
     {
-      image: 'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg',
+      image: '/assets/images/backend.png',
       title: 'Sitio Web para Restaurante de Hamburguesas - Backend',
       short: 'Gestion de productos, pedidos, clientes, domiciliarios y operadores',
       description: 'Crud completo de productos, pedidos, clientes, domiciliarios y operadores con autenticación, seguridad, testing, ventas, reportes y dashboard interactivo.',
@@ -63,7 +63,7 @@ export class ProjectsComponent implements AfterViewInit {
       description: 'Aplicación móvil híbrida que permite ubicar parqueaderos disponibles en tiempo real, realizar reservas y pagos digitales. Integra mapas interactivos y notificaciones push.',
       features: ['Ionic', 'Firebase', 'Google Maps API', 'Stripe', 'Push Notifications'],
       repoUrl: 'https://github.com/Intro-CompuMovil/ParkEasy',
-      demoUrl: '#'
+      demoUrl: 'https://www.youtube.com/shorts/cba7RciYqsI'
     },
     {
       image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg',

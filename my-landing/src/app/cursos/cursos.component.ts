@@ -8,13 +8,13 @@ import { Component, OnInit, OnDestroy, HostListener, ViewChild, ElementRef, Afte
 export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
   // 🌟 Cursos (carrusel)
   courses = [
-    { image: 'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg', title: 'Calidad del Software', description: 'Curso en el Sena sobre la calidad del Software y las diferentes normas ISO' },
-    { image: 'https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg', title: 'Nube de AWS', description: 'Curso ofrecido por AWS para saber manejar su nube y poder elegir correctamente entre todos los servicios que ofrece' },
-    { image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg', title: 'Javeriana Territorio Emprendedor', description: 'Participé en el programa "Javeriana Territorio Emprendedor".' },
-    { image: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg', title: 'Prompting Responsable', description: 'Curso de prompting responsable en IA, desarrollado por Microsoft y Founderz.' },
-    { image: 'https://images.pexels.com/photos/4348401/pexels-photo-4348401.jpeg', title: 'Ingles B1', description: 'Hice un curso en American School Way donde alcance un nivel B1 en Ingles' },
-    { image: 'https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg', title: 'Transformación Digital', description: 'Curso de Transformación Digital para empresas, MIT Professional Education.' },
-    { image: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg', title: 'Python Data Science', description: 'Análisis de datos con Pandas, NumPy y visualización con Matplotlib.' }
+    { image: 'https://www.isotools.us/wp-content/uploads/2024/06/Software-para-sistemas-de-gestion-de-calidad-que-caracteristicas-y-funcionalidades-debe-reunir.jpg', title: 'Calidad del Software - Sena', description: 'Curso en el Sena sobre la calidad del Software y las diferentes normas ISO', modalidad: 'Online' },
+    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAMBwFp4blXgNy24gKGab6WDL8IiVktJNvgQ&s', title: 'Nube de AWS', description: 'Curso ofrecido por AWS para saber manejar su nube y poder elegir correctamente entre todos los servicios que ofrece', modalidad: 'Online' },
+    { image: 'https://www.javeriana.edu.co/recursosdb/704339/6116923/Mesa%20de%20trabajo%2099%20copia%203.png/52cb4ae7-0b89-8087-1af3-e8ce7ed92796', title: 'Javeriana Territorio Emprendedor', description: 'Participé en el programa "Javeriana Territorio Emprendedor".', modalidad: 'Presencial' },
+    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Pw9vZvgrTOe4Z3OLIwdOjQqXmM5bgKz1Hw&s', title: 'Prompting Responsable - Microsoft', description: 'Curso de prompting responsable en IA, desarrollado por Microsoft y Founderz.', modalidad: 'Online' },
+    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFmSHVHNeO1x6dCPXq5d1Fb_33f9UXdbaonw&s', title: 'Ingles B1 - American School Way', description: 'Hice un curso en American School Way donde alcance un nivel B1 en Ingles', modalidad: 'Presencial' },
+    { image: 'https://www.ucatalunya.edu.co/img/blog/la-transformacion-digital.jpg', title: 'Transformación Digital - MIT', description: 'Curso de Transformación Digital para empresas, MIT Professional Education.', modalidad: 'Online' },
+    { image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNCObqnzWneBa0iTZsC5rsLKuI9YbZPUBUKw&s', title: 'Integración de IA en Sitios Web', description: 'Integración de herramientas de IA en Sitios Web, como lo son chatbots, IA para análisis de datos y IA para análisis de imágenes', modalidad: 'Online' }
   ];
 
   currentIndex = 0;
@@ -41,7 +41,7 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @ViewChild('track', { static: false }) trackRef!: ElementRef<HTMLDivElement>;
   @ViewChild('carousel', { static: false }) carouselRef!: ElementRef<HTMLDivElement>;
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.updateVisibleCards(); // ajustar al iniciar (this will setup slides)
@@ -96,7 +96,7 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
     if (this.supportsPointer) return;
     this.finishDrag();
   }
-  
+
   onPointerDown(event: PointerEvent): void {
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
     if (!this.isDragging) this.startDrag(event.clientX);
@@ -117,13 +117,13 @@ export class CursosComponent implements OnInit, OnDestroy, AfterViewInit {
       this.globalCancelUnlisten = this.renderer.listen('window', 'pointercancel', (e: PointerEvent) => this.onPointerUp(e));
     }
   }
-  
+
   onPointerMove(event: PointerEvent): void {
     if (!this.isDragging) return;
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
     this.moveDrag(event.clientX, event as any);
   }
-  
+
   onPointerUp(event: PointerEvent): void {
     if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
     this.finishDrag();
