@@ -17,18 +17,19 @@
         </div>
 
         <div class="chat-messages">
-            <div class="message bot">
-                <p>¡Hola! 👋 Soy el asistente virtual de Daniel. ¿En qué puedo ayudarte hoy?</p>
+            <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender">
+                <p>{{ msg.text }}</p>
             </div>
-            <div class="message user">
-                <p>Hola, Quiero saber como hiciste para realizar todos esos proyectos </p>
+
+            <div *ngIf="isLoading" class="message bot">
+                <p>Writing...</p>
             </div>
-            <!-- Placeholder for more messages -->
         </div>
 
         <div class="chat-input">
-            <input type="text" id="chat-input" placeholder="Escribe un mensaje..." />
-            <button class="send-btn" id="send-btn">➤</button>
+            <input type="text" placeholder="Escribe un mensaje..." [(ngModel)]="userMessage"
+                (keyup.enter)="sendMessage()" />
+            <button class="send-btn" (click)="sendMessage()" [disabled]="isLoading || !userMessage.trim()">➤</button>
         </div>
     </div>
 </div>

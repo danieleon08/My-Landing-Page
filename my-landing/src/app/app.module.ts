@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -40,6 +42,8 @@ import { ChatbotComponent } from './chatbot/chatbot.component';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([])
   ],
