@@ -1,0 +1,34 @@
+<div class="chatbot-container">
+    <!-- Floating Button -->
+    <button class="chat-toggle-btn" (click)="toggleChat()">
+        <span *ngIf="!isOpen">💬</span>
+        <span *ngIf="isOpen">✖</span>
+    </button>
+
+    <!-- Chat Window -->
+    <div class="chat-window" [class.open]="isOpen">
+        <div class="chat-header">
+            <div class="avatar">🤖</div>
+            <div class="title">
+                <h3>Asistente Virtual</h3>
+                <p>En línea</p>
+            </div>
+            <button class="close-btn" (click)="toggleChat()">✖</button>
+        </div>
+
+        <div class="chat-messages">
+            <div class="message bot">
+                <p>¡Hola! 👋 Soy el asistente virtual de Daniel. ¿En qué puedo ayudarte hoy?</p>
+            </div>
+            <div class="message user">
+                <p>Hola, Quiero saber como hiciste para realizar todos esos proyectos </p>
+            </div>
+            <!-- Placeholder for more messages -->
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="chat-input" placeholder="Escribe un mensaje..." />
+            <button class="send-btn" id="send-btn">➤</button>
+        </div>
+    </div>
+</div>

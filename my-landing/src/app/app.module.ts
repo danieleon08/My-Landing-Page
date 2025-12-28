@@ -17,6 +17,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { TechComponent } from './tech/tech.component';
 import { ContactComponent } from './contact/contact.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { ContactComponent } from './contact/contact.component';
     ExperiencesComponent,
     TechComponent,
     ContactComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
