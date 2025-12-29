@@ -88,6 +88,11 @@
 .avatar {
     font-size: 24px;
     margin-right: 10px;
+    margin-left: 20px;
+}
+
+.title {
+    margin-left: -150px;
 }
 
 .title h3 {

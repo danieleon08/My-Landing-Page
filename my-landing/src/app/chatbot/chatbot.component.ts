@@ -19,6 +19,8 @@ export class ChatbotComponent {
   userMessage = '';
   isLoading = false;
 
+  userId = Date.now() + Math.floor(Math.random() + 111 * 5000);
+
   constructor(private http: HttpClient) { }
 
   toggleChat() {
@@ -35,6 +37,7 @@ export class ChatbotComponent {
     this.isLoading = true;
 
     this.http.post<{ answer: string }>('http://localhost:3000/api/chat', {
+      userId: this.userId,
       message: messageToSend
     }).subscribe({
       next: (response) => {
