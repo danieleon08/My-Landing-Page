@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -17,6 +19,7 @@ import { ProjectsComponent } from './projects/projects.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
 import { TechComponent } from './tech/tech.component';
 import { ContactComponent } from './contact/contact.component';
+import { ChatbotComponent } from './chatbot/chatbot.component';
 
 
 @NgModule({
@@ -33,11 +36,14 @@ import { ContactComponent } from './contact/contact.component';
     ExperiencesComponent,
     TechComponent,
     ContactComponent,
+    ChatbotComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    HttpClientModule,
+    FormsModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([])
   ],
