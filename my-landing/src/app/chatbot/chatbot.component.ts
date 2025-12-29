@@ -36,7 +36,7 @@ export class ChatbotComponent {
     this.userMessage = '';
     this.isLoading = true;
 
-    this.http.post<{ answer: string }>('http://localhost:3000/api/chat', {
+    this.http.post<{ answer: string }>('https://asistente-de-ia-portafolio.onrender.com/api/chat', {
       userId: this.userId,
       message: messageToSend
     }).subscribe({
