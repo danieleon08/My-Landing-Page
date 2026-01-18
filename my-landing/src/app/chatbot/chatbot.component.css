@@ -34,6 +34,13 @@
     /* Enable clicks on button */
 }
 
+.chat-toggle-icon {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 .chat-toggle-btn:hover {
     transform: scale(1.1);
     background: var(--color-second);
@@ -86,13 +93,16 @@
 }
 
 .avatar {
-    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
     margin-right: 10px;
-    margin-left: 20px;
+    margin-left: -10px;
 }
 
 .title {
-    margin-left: -150px;
+    margin-left: -170px;
 }
 
 .title h3 {
