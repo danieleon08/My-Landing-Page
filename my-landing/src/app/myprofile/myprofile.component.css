@@ -9,7 +9,7 @@
   position: relative;
   overflow: hidden;
   background-color: var(--color-main);
-  font-family: 'Anton', sans-serif;
+  font-family: var(--font-title);
 }
 
 /* 🌌 NUEVO FONDO ANIMADO CON CÍRCULOS FLOTANTES */
@@ -22,7 +22,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 0; /* Detrás del texto */
+  z-index: 0;
+  /* Detrás del texto */
   width: 100%;
 }
 
@@ -42,6 +43,7 @@
 }
 
 @keyframes my-move {
+
   0%,
   100% {
     transform: rotateX(70deg) translateZ(50px) translateY(0px);
@@ -110,8 +112,13 @@
 
 /* 🌈 Animación del gradiente en highlight */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 100% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /* ⬇️ Flecha de scroll (opcional, si usas una) */
@@ -142,8 +149,15 @@
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50% { transform: translateX(-50%) translateY(-10px); }
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
 }
 
 /* --- 📱 RESPONSIVE --- */
@@ -165,30 +179,31 @@
   }
 
   .container {
-  position: absolute;
-  top: 30%;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 70%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0; /* Detrás del texto */
-  width: 100%;
-}
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+    /* Detrás del texto */
+    width: 100%;
+  }
 
   .item {
-  position: absolute;
-  background-color: transparent;
-  width: calc(var(--i) * 5vmin);
-  height: calc(var(--i) * 6vmin);
-  border-radius: 50%;
-  border: 0.4vmin solid var(--color-title);
-  transform-style: preserve-3d;
-  transform: rotateX(70deg) translateZ(50px);
-  animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
-  box-shadow: 0px 0px 8px var(--color-title),
-    inset 0px 0px 8px var(--color-title);
-  opacity: 0.3;
-}
+    position: absolute;
+    background-color: transparent;
+    width: calc(var(--i) * 5vmin);
+    height: calc(var(--i) * 6vmin);
+    border-radius: 50%;
+    border: 0.4vmin solid var(--color-title);
+    transform-style: preserve-3d;
+    transform: rotateX(70deg) translateZ(50px);
+    animation: my-move 3s ease-in-out calc(var(--i) * 0.08s) infinite;
+    box-shadow: 0px 0px 8px var(--color-title),
+      inset 0px 0px 8px var(--color-title);
+    opacity: 0.3;
+  }
 }

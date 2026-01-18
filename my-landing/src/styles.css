@@ -18,6 +18,11 @@
   --sidebar-desktop: 290px;
   --sidebar-tablet: 200px;
   --sidebar-mobile: 140px;
+
+  /* Typography */
+  --font-title: 'Outfit', sans-serif;
+  --font-subtitle: 'Plus Jakarta Sans', sans-serif;
+  --font-text: 'Inter', sans-serif;
 }
 
 
@@ -29,6 +34,21 @@ body {
   height: 100%;
   width: 100%;
   background-color: #06050e;
+  font-family: var(--font-text);
+  /* Global text font */
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-title);
+}
+
+.subtitle {
+  font-family: var(--font-subtitle);
 }
 
 /* Animación de desvanecimiento (header superior) */
