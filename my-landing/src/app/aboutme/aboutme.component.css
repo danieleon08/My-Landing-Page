@@ -4,9 +4,22 @@
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   padding: 80px 40px;
-  align-items: flex-start;
+  align-items: center;
+  /* Centrar verticalmente también si es necesario */
   background: var(--color-main);
   color: var(--color-text2);
+  max-width: 1400px;
+  /* Limitar ancho para que se pueda centrar */
+  margin: 0 auto;
+  /* Centrado horizontal */
+}
+
+:host-context(.with-sidebar) .about-container {
+  padding-left: 10px;
+  padding-right: 100px;
+  /* Balancear padding */
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
 }
 
 /* ---- LADO IZQUIERDO ---- */
@@ -51,7 +64,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, background 0.3s ease;
   cursor: default;
 }
@@ -94,7 +107,9 @@
 .achievements-track {
   display: flex;
   gap: 20px;
-  width: max-content; /* size to content so horizontal scroll animation can move */
+  width: 100%;
+  padding: 20px 0;
+  /* Espacio vertical para que no se corten las sombras al scrollear */
   flex-wrap: nowrap;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -102,10 +117,12 @@
 }
 
 .achievements-track:hover {
-  animation-play-state: paused; /* 🔥 pausa el scroll al pasar el mouse */
+  animation-play-state: paused;
+  /* 🔥 pausa el scroll al pasar el mouse */
 }
 
 /* tarjetas: no permitir que se encojan */
+/* tarjeta individual */
 .achievement-card {
   background: var(--color-main2);
   padding: 20px;
@@ -114,23 +131,28 @@
   align-items: center;
   gap: 15px;
   min-height: 90px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
   border: 1px solid transparent;
-  transition: box-shadow 0.4s ease, border 0.4s ease;
-  flex: 0 0 auto; /* 🔥 importante */
-  width: 500px;
+  transition: all 0.4s ease;
+  flex: 0 0 auto;
+  width: 90%;
+  /* Ajuste para dar espacio a los lados */
+  max-width: 480px;
+  margin: 10px auto;
+  /* Centrado y con margen vertical para sombras */
 }
 
-/* Cuando la app añade la clase `with-sidebar` al contenedor principal (ver AppComponent),
-   reducimos el ancho de las tarjetas para que respeten el espacio del header lateral */
+/* Cuando la app añade la clase `with-sidebar` al contenedor principal */
 :host-context(.with-sidebar) .achievement-card {
-  width: 300px;
+  width: 90%;
+  max-width: 300px;
 }
 
 .achievement-card:hover {
-  border: 1px solid var(--color-main2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 
-              0 0 40px rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--color-title);
+  box-shadow: 0 0 25px rgba(248, 225, 216, 0.4);
+  /* Color secundario translúcido */
+  transform: scale(1.02);
 }
 
 .achievement-card i {
@@ -141,7 +163,7 @@
 .achievement-text h3 {
   margin: 0;
   font-size: 1.2rem;
-  color: var(--color-second);
+  color: var(--color-title);
 }
 
 .achievement-text p {
@@ -179,22 +201,38 @@
   }
 
   .achievement-card {
-    width: 250px; /* 🔥 ajusta el ancho */
+    width: 250px;
+    /* 🔥 ajusta el ancho */
     flex-shrink: 0;
-     flex: 0 0 auto; /* asegura que cada tarjeta conserve su tamaño */
+    flex: 0 0 auto;
+    /* asegura que cada tarjeta conserve su tamaño */
   }
 }
 
 /* 🔥 Scroll infinito vertical */
 @keyframes scroll-vertical {
-  from { transform: translateY(0); }
-  to   { transform: translateY(-50%); } /* solo se mueve la mitad porque duplicamos lista */
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-50%);
+  }
+
+  /* solo se mueve la mitad porque duplicamos lista */
 }
 
 /* 🔥 Scroll infinito horizontal */
 @keyframes scroll-horizontal {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); } /* se recorre todo el ancho duplicado */
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+
+  /* se recorre todo el ancho duplicado */
 }
 
 /* Aplica la animación según el viewport */
@@ -202,7 +240,8 @@
   .achievements-track {
     flex-direction: column;
     animation-name: scroll-vertical;
-    animation-duration: 150s; /* default, ajustable en TS */
+    animation-duration: 150s;
+    /* default, ajustable en TS */
   }
 }
 
@@ -210,7 +249,8 @@
   .achievements-track {
     flex-direction: row;
     animation-name: scroll-horizontal;
-    animation-duration: 120s; /* ajusta la velocidad (más grande = más lento) */
+    animation-duration: 120s;
+    /* ajusta la velocidad (más grande = más lento) */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
   }
