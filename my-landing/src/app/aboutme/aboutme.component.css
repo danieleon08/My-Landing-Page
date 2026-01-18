@@ -247,9 +247,10 @@
 
 @media (max-width: 1025px) {
   .achievements-track {
+    width: max-content;
     flex-direction: row;
     animation-name: scroll-horizontal;
-    animation-duration: 120s;
+    animation-duration: 100s;
     /* ajusta la velocidad (más grande = más lento) */
     animation-timing-function: linear;
     animation-iteration-count: infinite;
